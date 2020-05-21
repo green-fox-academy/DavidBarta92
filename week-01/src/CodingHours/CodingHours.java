@@ -11,7 +11,6 @@ public class CodingHours {
         short hpw = 52;
         short full = (short) (hpw * weeks);
         float percent = ((float)total / full)*100;
-        System.out.println(hpw * weeks);
         System.out.println(percent + "%");
     }
 }
