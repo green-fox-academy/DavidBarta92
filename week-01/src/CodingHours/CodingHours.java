@@ -9,8 +9,9 @@ public class CodingHours {
         System.out.println("Kodolassal toltott orak szama:" + total);
 
         short hpw = 52;
-        short percent = (short) (680 / (hpw * weeks));
-        System.out.println(hpw * weeks + " hpw*weeks");
+        short full = (short) (hpw * weeks);
+        float percent = ((float)total / full)*100;
+        System.out.println(hpw * weeks);
         System.out.println(percent + "%");
     }
 }
