@@ -1,0 +1,9 @@
+package IWontCheatOnTheExams;
+
+public class IWontCheatOnTheExams {
+    public static void main(String[] args) {
+        for (short i = 0; i < 100; i++) {
+            System.out.println("I wont cheat on the exams.");
+        }
+    }
+}
