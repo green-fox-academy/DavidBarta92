@@ -21,9 +21,16 @@ public class ConditionalVariableMutation {
 
         int b = 13;
         String out2 = "";
-        // if b is between 10 and 20 set out2 to "Sweet!"
-        // if less than 10 set out2 to "Less!",
-        // if more than 20 set out2 to "More!"
+        //?
+        if (b > 10 && 20 > b) {
+            System.out.print("Sweet!");
+        }
+        else if (10 > b) {
+            System.out.print("Less!");
+        }
+        else {
+            System.out.print("More!");
+        }
 
 
         System.out.println(out2);
