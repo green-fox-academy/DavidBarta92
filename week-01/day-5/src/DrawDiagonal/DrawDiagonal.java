@@ -6,28 +6,45 @@ public class DrawDiagonal {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int num = scanner.nextInt();
-        if (num > 5){
-            int edge = (num - 5) / 2;
-            for (int i = num; i > 0; i--) {
-                if (i == num || i == 1){
-                    for (int j = 0; j < 6; j++){
-                        System.out.print("%");
-                    }
-                }
-                else {
-                    for (int j = 0; j < 4; j++){
-                        System.out.print("%");
-                        for (int k = 0; k < 4; k++){
-                            System.out.print("");
-                        }
-                        System.out.print("%");
-                    }
-                }
-                System.out.println();
-            }
+
+        for (int i = 1; i <= num; i++){
+            System.out.print("%");
         }
-        else {
-            System.out.println("Please enter a bigger number than 5!");
+        System.out.println();
+        for (int i = 0; i < (num - 2); i++){
+            System.out.print("%");
+            if (i % 3 == 0){
+                for (int j = 0; j < (num - 2) / 3; j++)
+                    System.out.print("%  ");
+            }else if (i % 3 == 1){
+                for (int j = 0; j < (num - 2) / 3; j++)
+                    System.out.print(" % ");
+            }else {
+                for (int j = 0; j < (num - 2) / 3; j++)
+                    System.out.print("  %");
+            }
+            if (num % 3 == 0){
+                if (i % 3 != 0) {
+                    System.out.print(" %");
+                }else {
+                    System.out.print("%%");
+                }
+            } else if (num % 3 == 1){
+                if (i % 3 == 0){
+                    System.out.print("% %");
+                } else if (i % 3 == 1){
+                    System.out.print(" %%");
+                } else {
+                    System.out.print("  %");
+                }
+            } else {
+                System.out.print("%");
+            }
+            System.out.println();
+        }
+
+        for (int i = 1; i <= num; i++){
+            System.out.print("%");
         }
     }
 }
