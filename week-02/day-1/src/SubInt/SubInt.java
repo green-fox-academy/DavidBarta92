@@ -1,5 +1,6 @@
 package SubInt;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class SubInt {
@@ -7,13 +8,11 @@ public class SubInt {
         Scanner userNum = new Scanner(System.in);
         int num = userNum.nextInt();
         int[] listOfNumbers = {1, 11, 34, 52, 61};
-        System.out.println(subInt(num, listOfNumbers));
+        System.out.println(Arrays.toString(subInt(num, listOfNumbers)));
         //  should print: `[0, 1, 4]`
-        System.out.println(subInt(num, listOfNumbers));
-        //  should print: '[]'
     }
     public static int[] subInt(int num, int[] listOfNumbers) {
-        int[] sub = {0, 0, 0, 0, 0};
+        int[] sub = new int[4];
         for (byte i = 0; i < listOfNumbers.length; i++) {
             byte k = 0;
             int dec = 0;
@@ -22,14 +21,14 @@ public class SubInt {
                     listOfNumbers[i] = listOfNumbers[i] - 10;
                     dec =+ dec;
                 }
-            }
-            if (num == listOfNumbers[i]){
-                sub[k] = i;
-                k += k;
-            }
-            else if (num == dec) {
-                sub[k] = i;
-                k += k;
+                if (num == listOfNumbers[i]){
+                    sub[k] = i;
+                    k += k;
+                }
+                else if (num == dec) {
+                    sub[k] = i;
+                    k += k;
+                }
             }
         }
         return sub;
