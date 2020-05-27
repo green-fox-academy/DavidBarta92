@@ -1,2 +1,1 @@
-Lorem ipsum
-Lorem ipsum 2
+Hello

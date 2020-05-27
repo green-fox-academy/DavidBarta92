@@ -9,9 +9,9 @@ import java.util.Scanner;
 
 public class CountLines {
     public static void main(String[] args) {
+        Scanner userFilePath = new Scanner(System.in);
+        String newFilePath = userFilePath.next();
         try {
-            Scanner userFilePath = new Scanner(System.in);
-            String newFilePath = userFilePath.next();
             System.out.println(reader(newFilePath));
         } catch (Exception e) {
             System.out.println("0");
