@@ -13,7 +13,7 @@ public class SubInt {
     }
     public static int[] subInt(int num, int[] listOfNumbers) {
         int[] sub = new int[4];
-        for (byte i = 0; i < listOfNumbers.length; i++) {
+        for (byte i = 0; i < 5; i++) {
             byte k = 0;
             int dec = 0;
             for (byte j = 0; j < 6; j++){
