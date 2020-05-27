@@ -1,28 +1,31 @@
-package WriteSingleLine;
+package WriteMultipleLines;
 
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class WriteSingleLine {
+public class WriteMultipleLines {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String newData = scanner.next();
+        String newPath = scanner.next();
+        String newWord = scanner.next();
+        int newNum = scanner.nextInt();
         try {
-            editor(newData);
+            editor(newPath, newWord, newNum);
         } catch (Exception e) {
             System.out.println("Unable to write file: my-file.txt");
         }
-
     }
-    public static void editor(String newData) throws IOException {
+    public static void editor(String newPath, String newWord, int newNum) throws IOException {
         List<String> content = new ArrayList();
-        content.add(newData);
-        Path filePath = Paths.get("./my-file.txt");
+        for (int i = 1; i <= newNum; i++) {
+            content.add(newWord);
+        }
+        Path filePath = Paths.get(newPath);
         Files.write(filePath, content);
         System.out.println("File modification is done.");
     }
