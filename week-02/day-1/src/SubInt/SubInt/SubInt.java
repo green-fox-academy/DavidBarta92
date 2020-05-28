@@ -8,29 +8,28 @@ public class SubInt {
         Scanner userNum = new Scanner(System.in);
         int num = userNum.nextInt();
         int[] listOfNumbers = {1, 11, 34, 52, 61};
-        System.out.println(Arrays.toString(subInt(num, listOfNumbers)));
-        //  should print: `[0, 1, 4]`
+        subInt(num, listOfNumbers);
     }
-    public static int[] subInt(int num, int[] listOfNumbers) {
-        int[] sub = new int[5];
-        for (byte i = 0; i < 5; i++) {
-            byte k = 0;
+    public static void subInt(int num, int[] listOfNumbers) {
+        int[] indexNum = new int[5];
+        for (byte i = 1; i <= 5; i++) {
             int dec = 0;
-            for (byte j = 0; j < 6; j++){
-                if (listOfNumbers[i] > 10) {
-                    listOfNumbers[i] = listOfNumbers[i] - 10;
-                    dec =+ dec;
+            for (byte j = 0; j < 9; j++){
+                if (listOfNumbers[i-1] > 9) {
+                    listOfNumbers[i-1] = listOfNumbers[i-1] - 10;
+                    dec = ++dec;
                 }
-                if (num == listOfNumbers[i]){
-                    sub[k] = i;
-                    k += k;
-                }
-                else if (num == dec) {
-                    sub[k] = i;
-                    k += k;
+                else if (listOfNumbers[i-1] == num || dec == num) {
+
+                    indexNum[i-1] = i;
                 }
             }
         }
-        return sub;
+        System.out.print("Index: ");
+        for (byte i = 0; i <5; i++){
+            if (indexNum[i] > 0){
+                System.out.print(indexNum[i] -1 + " ");
+            }
+        }
     }
 }
