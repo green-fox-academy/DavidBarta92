@@ -11,12 +11,15 @@ public class GoToCenter {
         for (byte i = 0; i < 3; i++) {
             double x = Math.random()*100;
             double y = Math.random()*100;
+            radius(x,y,graphics);
         }
 
     }
-    public  static void radius(int x, int y, Graphics graphics){
+    public  static void radius(double x, double y, Graphics graphics){
         graphics.setColor(new Color(255,0,0,150));
-        graphics.drawLine(x, y, WIDTH/2, HEIGHT/2);
+        int xX = (int)x;
+        int yY = (int)y;
+        graphics.drawLine(xX, yY, WIDTH/2, HEIGHT/2);
     }
 
     // Don't touch the code below

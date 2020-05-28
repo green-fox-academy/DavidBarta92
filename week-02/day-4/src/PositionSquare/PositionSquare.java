@@ -10,14 +10,16 @@ public class PositionSquare {
 
     public static void mainDraw(Graphics graphics){
         for (byte i = 0; i < 3; i++){
-            int x = 50;
-            int y = 50;
+            double x = Math.random()*100;
+            double y = Math.random()*100;
             squareDrawer(x, y, graphics);
         }
     }
-    public static void squareDrawer(int x, int y, Graphics graphics){
+    public static void squareDrawer(double x, double y, Graphics graphics){
         graphics.setColor(new Color(99,100,202,150));
-        graphics.fillRect(x, y, 50, 50);
+        int xX = (int)x;
+        int yY = (int)y;
+        graphics.fillRect(xX, yY, 50, 50);
     }
 
     // Don't touch the code below
