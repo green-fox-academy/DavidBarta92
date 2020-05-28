@@ -12,7 +12,7 @@ public class SubInt {
         //  should print: `[0, 1, 4]`
     }
     public static int[] subInt(int num, int[] listOfNumbers) {
-        int[] sub = new int[4];
+        int[] sub = new int[5];
         for (byte i = 0; i < 5; i++) {
             byte k = 0;
             int dec = 0;

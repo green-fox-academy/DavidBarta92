@@ -31,7 +31,6 @@ public class ListIntro2 {
         System.out.println(listA.indexOf("Avocado"));
         System.out.println(listB.indexOf("Durian"));
 
-        listB.addAll(listB,"Passion Fruit", "Pomelo");
 
         System.out.println(listA.get(2));
 
