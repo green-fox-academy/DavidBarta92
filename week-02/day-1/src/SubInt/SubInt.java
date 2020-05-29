@@ -20,7 +20,6 @@ public class SubInt {
                     dec = ++dec;
                 }
                 else if (listOfNumbers[i-1] == num || dec == num) {
-
                     indexNum[i-1] = i;
                 }
             }
