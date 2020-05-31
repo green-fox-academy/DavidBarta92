@@ -13,8 +13,6 @@ public class PurpleSteps {
             drawSquare(i ,graphics);
         }
     }
-
-
     public  static void drawSquare(int x, Graphics graphics) {
         graphics.setColor(Color.MAGENTA);
         graphics.fillRect((x*10)+10,(x*10+10),10,10);

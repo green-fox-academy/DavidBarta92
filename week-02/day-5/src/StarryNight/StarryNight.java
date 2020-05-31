@@ -1,28 +1,25 @@
 package StarryNight;
 
 import javax.swing.*;
-
 import java.awt.*;
+import java.lang.Math;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class StarryNight {
     public static void mainDraw(Graphics graphics) {
-        // Draw the night sky:
-        //  - The background should be black
-        //  - The stars can be small squares
-        //  - The stars should have random positions on the canvas
-        //  - The stars should have random color (some shade of grey)
-        //
-        int xTopLeft = 10;
-        int yTopLeft = 20;
-        int width = 300;
-        int height = 300;
-
-        graphics.fillRect(int xTopLeft, int yTopLeft, int width, int height);
-
-
-
+        graphics.setColor(Color.black);
+        graphics.fillRect(0,0,WIDTH,HEIGHT);
+        for (int i = 0; i < 100; i++){
+            int source = (int) (Math.random()*100);
+            stars(source, graphics);
+        }
+    }
+    public static void stars(int source, Graphics graphics){
+        int x = (int) (Math.random()*10);
+        int y = (int) (Math.random()*10);
+        graphics.setColor(new Color(source*2, source*2, source*2, source*2));
+        graphics.fillRect(source*x,source*y,source/10,source/10);
     }
 
     // Don't touch the code below
