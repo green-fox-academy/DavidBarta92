@@ -1,26 +1,25 @@
-package StarryNight;
+package LinePlay;
 
 import javax.swing.*;
+
 import java.awt.*;
-import java.lang.Math;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class StarryNight {
+public class LinePlay {
     public static void mainDraw(Graphics graphics) {
-        graphics.setColor(Color.black);
-        graphics.fillRect(0,0,WIDTH,HEIGHT);
-        for (int i = 0; i < 100; i++){
-            int source = (int) (Math.random()*100);
-            stars(source, graphics);
+        for (int i = 1; i*20 <= WIDTH ; i++) {
+            int x1=20; int y1=0; int x2=320; int y2=20;
+            graphics.setColor(Color.MAGENTA);
+            drawLines(x1*i, y1, x2, y2*i, graphics);
+            graphics.setColor(Color.BLUE);
+            drawLines((x1-20), (20+y1)*i, (x2-300)*i, (y2+300), graphics);
         }
     }
-    public static void stars(int source, Graphics graphics){
-        int x = (int) (Math.random()*10);
-        int y = (int) (Math.random()*10);
-        graphics.setColor(new Color(source*2, source*2, source*2, source*2));
-        graphics.fillRect(source*x,source*y,source/10,source/10);
+    public  static void drawLines(int x1,int y1, int x2, int y2, Graphics graphics) {
+        graphics.drawLine(x1,y1,x2, y2);
     }
+
 
     // Don't touch the code below
     static int WIDTH = 320;
@@ -37,7 +36,7 @@ public class StarryNight {
         jFrame.pack();
     }
 
-    public static class ImagePanel extends JPanel {
+    static class ImagePanel extends JPanel {
         @Override
         protected void paintComponent(Graphics graphics) {
             super.paintComponent(graphics);
