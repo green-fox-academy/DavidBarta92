@@ -1,3 +1,5 @@
+package Pokemon;
+
 public class Pokemon {
     String name;
     String type;
@@ -12,5 +14,5 @@ public class Pokemon {
     boolean isEffectiveAgainst(Pokemon anotherPokemon) {
         return this.effectiveAgainst.equals(anotherPokemon.type);
     }
-    
+
 }
