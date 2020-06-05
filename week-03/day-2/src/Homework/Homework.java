@@ -2,6 +2,18 @@ package Homework;
 
 public class Homework {
     public static void main(String[] args) {
+
+        ArrayList<String> treeNames = new ArrayList<>(Arrays.asList("Oak","Apple","Baobab","Acacia","Akacia"));
+        ArrayList<String> treeColors = new ArrayList<>(Arrays.asList("green","green","green","yellow","green"));
+        ArrayList<Integer> treeAge = new ArrayList<>(22,50,2,100,10);
+        ArrayList<boolean> treeSex = new ArrayList<>(true,true,true,true,false);
+
+
+
+        ////////////////////////
+
+
+
         Tree fa1 = new Tree();
         fa1.type = "Oak";
         fa1.leafColor = "green";
