@@ -9,7 +9,7 @@ public class AnagramTest {
     @Test
     public void anagram() {
         Anagram anagram = new Anagram();
-        assertTrue(anagram.anagram("god","dog"));
+        assertTrue(anagram.anagram("god","god"));
     }
     @Test
     public void notAnagram() {
