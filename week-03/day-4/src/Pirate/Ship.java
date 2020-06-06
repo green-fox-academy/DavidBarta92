@@ -16,9 +16,20 @@ public class Ship {
         for (byte i = 0; i < numOfCrew; i++){
             crew.add(i, new Pirate());
         }
+        this.crew.get(0).setCaptainStatus();
         this.captain = this.crew.get(0);
     }
+
     public boolean battle(Ship otherShip){
+        for (byte i = 0; i < this.crew.size(); i++){
+            this.crew.get(i).brawl(otherShip.crew.get(i));
+            if (this.crew.get(i).getAliveStatus()) {
+                this.score++;
+            }
+            else if (otherShip.crew.get(i).getAliveStatus()){
+                otherShip.score++;
+            }
+        }
 
         boolean win;
         if (this.score > otherShip.score) {

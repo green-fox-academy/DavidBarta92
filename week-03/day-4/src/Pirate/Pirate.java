@@ -3,10 +3,28 @@ package Pirate;
 public class Pirate {
     private boolean alive;
     private boolean drunk;
+    private boolean captain;
 
     public Pirate(){
         this.alive = true;
         this.drunk = false;
+        this.captain = false;
+    }
+
+    public boolean getAliveStatus(){
+        return alive;
+    }
+
+    public boolean getDrunkStatus(){
+        return drunk;
+    }
+
+    public boolean getCaptainStatus(){
+        return captain;
+    }
+
+    public boolean setCaptainStatus(){
+        return captain = true;
     }
 
     public boolean drinkSomeRum(){
