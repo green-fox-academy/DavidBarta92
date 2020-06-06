@@ -64,6 +64,9 @@ public class Pirate {
                 opponent.die();
             }
             else{
+                this.die();
+                opponent.die();
+
             }
         }
         else{

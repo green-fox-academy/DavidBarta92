@@ -30,7 +30,12 @@ public class Ship {
                 otherShip.score++;
             }
         }
-
+        if (this.crew.get(0).getAliveStatus() && this.crew.get(0).getDrunkStatus()) {
+            this.score++;
+        }
+        else if (otherShip.crew.get(0).getAliveStatus() && otherShip.crew.get(0).getDrunkStatus()){
+            otherShip.score++;
+        }
         boolean win;
         if (this.score > otherShip.score) {
             return win = true;
