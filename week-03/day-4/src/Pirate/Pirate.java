@@ -4,36 +4,38 @@ public class Pirate {
     private boolean alive;
     private boolean drunk;
     private boolean captain;
+    private boolean hasParrot;
 
     public Pirate(){
         this.alive = true;
         this.drunk = false;
         this.captain = false;
+        this.hasParrot = false;
     }
 
     public boolean getAliveStatus(){
-        return alive;
+        return this.alive;
     }
 
     public boolean getDrunkStatus(){
-        return drunk;
+        return this.drunk;
     }
 
     public boolean getCaptainStatus(){
-        return captain;
+        return this.captain;
     }
 
     public boolean setCaptainStatus(){
-        return captain = true;
+        return this.captain = true;
     }
 
     public boolean drinkSomeRum(){
         if (alive){
-            return drunk = true;
+            return this.drunk = true;
         }
         else{
             die();
-            return drunk = false;
+            return this.drunk = false;
         }
     }
 
@@ -51,6 +53,10 @@ public class Pirate {
 
     public boolean die(){
         return alive = false;
+    }
+
+    public void gotParrot(){
+        this.hasParrot = true;
     }
 
     public void brawl(Pirate opponent) {

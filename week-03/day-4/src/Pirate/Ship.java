@@ -7,10 +7,15 @@ public class Ship {
     private Pirate captain;
     private int score;
     private String name;
+    private boolean winner;
 
     public Ship(String name){
         this.name = name;
         this.score = 0;
+    }
+
+    public boolean getWinStatus(){
+        return this.winner;
     }
 
     public void fillShip(){
@@ -81,12 +86,12 @@ public class Ship {
         if (this.score > otherShip.score) {
             System.out.println(this.name + " is the winner.");
             System.out.println();
-            return win = true;
+            return winner = true;
         }
         else {
             System.out.println(otherShip.name + " is the winner.");
             System.out.println();
-            return win = false;
+            return winner = false;
         }
     }
 }
