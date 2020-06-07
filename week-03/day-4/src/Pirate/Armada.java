@@ -8,10 +8,9 @@ public class Armada {
 
     public Armada(String name){
         this.name = name;
-
         byte numOfCrew = (byte) (Math.random()*30);
         for (byte i = 0; i < numOfCrew; i++){
-            ships.add(i, new Ship("lala")); // ide mast
+            ships.add(i, new Ship());
         }
     }
 
