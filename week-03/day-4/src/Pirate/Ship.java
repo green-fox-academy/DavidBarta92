@@ -8,7 +8,7 @@ public class Ship {
     private int score;
     private boolean winner;
 
-    public Ship(){
+    public Ship(String s){
         this.score = 0;
     }
 
@@ -21,15 +21,14 @@ public class Ship {
         for (byte i = 0; i < numOfCrew; i++){
             crew.add(i, new Pirate());
         }
-        this.crew.get(0).setCaptainStatus();
         this.captain = this.crew.get(0);
 
         System.out.println("This ship: " + numOfCrew + " sailor on the board! The score of the ship: " + this.score);
         if (this.crew.get(0).getDrunkStatus()){
-            System.out.println("This ship: " + ": The captain is drunk.");
+            System.out.println("This ship: The captain is drunk.");
         }
         else {
-            System.out.println("This ship: " + ": The captain is sober.");
+            System.out.println("This ship: The captain is sober.");
         }
     }
 
@@ -65,21 +64,21 @@ public class Ship {
         }
 
         //fist ship data
-        System.out.println("First ship: " + ": " + this.crew.size() + " sailor on the board! The score of the ship: " + this.score);
+        System.out.println("First ship: The score of the ship: " + this.score);
         if (this.crew.get(0).getDrunkStatus()){
-            System.out.println("First ship: " + ": The captain is drunk.");
+            System.out.println("First ship: captain is drunk.");
         }
         else {
-            System.out.println("First ship: " + ": The captain is sober.");
+            System.out.println("First ship: The captain is sober.");
         }
 
         //second ship data
-        System.out.println("Second ship: " + ": " + otherShip.crew.size() + " sailor on the board! The score of the ship: " + otherShip.score);
+        System.out.println("Second ship: The score of the ship: " + otherShip.score);
         if (this.crew.get(0).getDrunkStatus()){
-            System.out.println("Second ship: " + ": The captain is drunk.");
+            System.out.println("Second ship: The captain is drunk.");
         }
         else {
-            System.out.println("Second ship: " + ": The captain is sober.");
+            System.out.println("Second ship: The captain is sober.");
         }
         boolean win;
         if (this.score > otherShip.score) {

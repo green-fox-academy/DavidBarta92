@@ -8,9 +8,11 @@ public class Armada {
 
     public Armada(String name){
         this.name = name;
-        byte numOfCrew = (byte) (Math.random()*30);
-        for (byte i = 0; i < numOfCrew; i++){
-            ships.add(i, new Ship());
+        byte numOfShips = (byte) (Math.random()*10);
+        for (byte i = 0; i < numOfShips; i++){
+            Ship ship = new Ship( this.name +" Ship" + i);
+            ship.fillShip();
+            this.ships.add(ship);
         }
     }
 
@@ -30,14 +32,17 @@ public class Armada {
                     }
                 }
                 else {
+                    System.out.println("First armada won.");
                     return win = true;
                 }
             }
         }
-        if(lose == this.ships.size()){
+        if(lose == (this.ships.size()-1)){
+            System.out.println("Second armada won.");
             return win = false;
         }
         else {
+            System.out.println("First armada won.");
             return win = true;
         }
     }

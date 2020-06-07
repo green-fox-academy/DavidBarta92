@@ -10,12 +10,10 @@ public class BattleApp {
         System.out.println("~~~~~~~~~~~~~~~~~~~~");
 
 
-        Ship blackSkull = new Ship("Black Skull");
-        Ship siren = new Ship("Siren");
+        Armada armada1 = new Armada("Armada 1");
+        Armada armada2 = new Armada("Armada 2");
 
-        blackSkull.fillShip();
-        siren.fillShip();
+        armada1.war(armada2);
 
-        blackSkull.battle(siren);
     }
 }
