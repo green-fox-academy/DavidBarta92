@@ -11,12 +11,6 @@ public class Ship {
     public Ship(String name){
         this.name = name;
         this.score = 0;
-        System.out.println("      _~");
-        System.out.println("   _~)_)_~");
-        System.out.println("  )_))_))_)");
-        System.out.println("  _!__!__!_");
-        System.out.println("  \\_______/");
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~ " + this.name);
     }
 
     public void fillShip(){
@@ -42,7 +36,7 @@ public class Ship {
         System.out.println("X BATTLE X");
         System.out.println("XXXXXXXXXX");
 
-        for (byte i = 0; i < this.crew.size(); i++){
+        for (byte i = 0; i < this.crew.size(); i++){ // itt van egy kis gond
             this.crew.get(i).brawl(otherShip.crew.get(i));
             byte anotherCup = (byte) (Math.random()*2);
             if (this.crew.get(i).getAliveStatus()) {

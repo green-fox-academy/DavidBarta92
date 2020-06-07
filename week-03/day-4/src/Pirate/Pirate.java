@@ -50,7 +50,6 @@ public class Pirate {
     }
 
     public boolean die(){
-        System.out.println("He is dead.");
         return alive = false;
     }
 
