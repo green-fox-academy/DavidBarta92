@@ -1,6 +1,6 @@
 package HW;
 
-public class Person {
+public class Student {
     private String name;
     private int age;
     private Gender gender;
@@ -22,8 +22,10 @@ public class Person {
     }
 
     public void getGoal(){
-        System.out.println("My goal is: Live for the moment!");
+        System.out.println("Be a junior software developer.");
     }
 
+    public void skipDays(int numberOfDays){
 
+    }
 }
