@@ -11,10 +11,10 @@ public class Person {
         this.gender = gender.female;
     }
 
-    public Person(String name, int age, Gender gender){
+    public Person(String name, int age, String gender){
         this.name = name;
         this.age = age;
-        this.gender = gender;
+        this.gender = Gender.valueOf(gender);
     }
 
     public void introduce(){

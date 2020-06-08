@@ -10,10 +10,8 @@ public class Student extends Person{
         this.skippedDays = 0;
     }
 
-    public Student(String name,int age,Gender gender,String previousOrganization){
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
+    public Student(String name,int age,String gender,String previousOrganization){
+        super(name, age, gender);
         this.previousOrganization = previousOrganization;
         this.skippedDays = 0;
     }

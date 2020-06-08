@@ -8,11 +8,9 @@ public class Mentor extends Person {
         this.level = level.intermediate;
     }
 
-    public Mentor(String name, int age, Gender gender, Level level){
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
-        this.level = level;
+    public Mentor(String name, int age, String gender, String level){
+        super(name, age, gender);
+        this.level = Level.valueOf(level);
     }
 
     @Override
