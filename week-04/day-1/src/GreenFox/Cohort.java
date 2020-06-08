@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Cohort {
     private String name;
-    private ArrayList<Student> students;
-    private ArrayList<Mentor>mentors;
+    private ArrayList<Student> students = new ArrayList<>();
+    private ArrayList<Mentor>mentors = new ArrayList<>();
 
     public Cohort(String name){
         this.name = name;

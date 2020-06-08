@@ -19,12 +19,12 @@ public class Sponsor extends Person{
     }
 
     @Override
-    public void introduce(){
-        System.out.println("Hi, I'm "+ this.name + " , a " + this.age + " year old " + this.gender + "who represents" + company + " and hired " + hiredStudents + " students so far.");
+    public String specificIntroduction(){
+        return " Who represents" + company + " and hired " + this.hiredStudents + " students so far.";
     }
 
     @Override
-    public String getGoal(){
+    public String specificGoal(){
         return "Hire brilliant junior software developers.";
     }
 

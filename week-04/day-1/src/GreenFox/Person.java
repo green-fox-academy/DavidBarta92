@@ -18,9 +18,17 @@ public class Person {
     }
 
     public void introduce(){
-        System.out.println("Hi, I'm name, a age year old gender.");
+        System.out.println("Hi, I'm " + name + ", a " + age + " year old " + gender + specificIntroduction());
     }
-    public String getGoal(){
+    public String specificIntroduction(){
+        return ".";
+    }
+
+    public void getGoal(){
+        System.out.println(specificGoal());
+    }
+
+    public String specificGoal(){
         return "My goal is: Live for the moment!";
     }
 
