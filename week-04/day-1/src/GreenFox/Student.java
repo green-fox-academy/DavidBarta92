@@ -18,10 +18,12 @@ public class Student extends Person{
         this.skippedDays = 0;
     }
 
-    public void getGoal(){
-        System.out.println("Be a junior software developer.");
+    @Override
+    public String getGoal(){
+        return "Be a junior software developer.";
     }
 
+    @Override
     public void introduce(){
         System.out.println("Hi, I'm "+ this.name + " , a " + this.age + " year old " + this.gender + " from " + previousOrganization + " who skipped " + skippedDays + " days from the course already.");
     }
