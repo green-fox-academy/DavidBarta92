@@ -1,5 +1,5 @@
 package GreenFox;
 
 public enum Gender {
-    MALE, FEMALE
+    male, female
 }

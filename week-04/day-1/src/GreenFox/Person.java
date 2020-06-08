@@ -8,7 +8,7 @@ public class Person {
     public Person(){
         this.name = "Jane Doe";
         this.age = 30;
-        this.gender = gender.FEMALE;
+        this.gender = gender.female;
     }
 
     public Person(String name, int age, Gender gender){
