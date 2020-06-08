@@ -21,5 +21,11 @@ public class Student extends Person{
         this.skippedDays = skippedDays - numberOfDays;
     }
 
-
+    public void showData(){
+        System.out.println(name);
+        System.out.println(age);
+        System.out.println(gender);
+        System.out.println(previousOrganization);
+        System.out.println(skippedDays);
+    }
 }
