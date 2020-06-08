@@ -12,18 +12,20 @@ public class Plant {
     }
 
     protected boolean needs(){
-        boolean needs;
-        if (this.need > this.amount){
-            needs = true;
-        }
-        else {
-            needs = false;
-        }
-        return needs;
+            boolean needs;
+            if (5 > this.amount && this.type.contentEquals("Flower")){
+                needs = true;
+            }
+            else if (10 > this.amount && this.type.contentEquals("Tree")){
+                needs = true;
+            }
+            else {
+                needs = false;
+            }
+            return needs;
     }
 
     protected void add(int newAmount){
-        this.amount = this.amount + newAmount;
     }
 
     protected boolean is(String type){

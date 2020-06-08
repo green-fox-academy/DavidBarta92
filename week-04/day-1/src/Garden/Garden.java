@@ -11,7 +11,7 @@ public class Garden {
 
     public void needsWaterInfo(){
         for(int i = 0; i < this.plants.size(); i++){
-            if (this.plants.get(i).need > this.plants.get(i).amount){
+            if (5 > this.plants.get(i).amount){
                 System.out.println("The " + this.plants.get(i).color + " " +this.plants.get(i).type + " needs water");
             }
             else{
