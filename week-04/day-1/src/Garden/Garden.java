@@ -10,24 +10,21 @@ public class Garden {
     }
 
     public void needsWaterInfo(){
-
         for(int i = 0; i < this.plants.size(); i++){
-            if (this.plants.get(i).need > this.plants.get(i).contain){
-                    System.out.println("The" + this.plants.get(i).color + this.plants.get(i).type + " needs water");
+            if (this.plants.get(i).need > this.plants.get(i).amount){
+                System.out.println("The " + this.plants.get(i).color + " " +this.plants.get(i).type + " needs water");
             }
             else{
-                System.out.println("The" + this.plants.get(i).color + this.plants.get(i).type + "doesnt need water");
+                System.out.println("The " + this.plants.get(i).color + " " +this.plants.get(i).type + " doesnt need water");
             }
         }
     }
 
-    public void watering(byte amount){
+    public void watering(int amount){
+        System.out.println("Watering with " + amount);
         for(int i = 0; i < this.plants.size(); i++){
-            if (this.plants.get(i).need == 40){
-
-            }
-            else{
-
+            if (this.plants.get(i).needs()){
+                this.plants.get(i).add(amount);
             }
         }
     }
