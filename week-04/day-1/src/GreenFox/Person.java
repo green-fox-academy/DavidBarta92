@@ -1,17 +1,20 @@
 package GreenFox;
 
+import GreenFox.Gender;
+import GreenFox.Level;
+
 public class Person {
     protected String name;
     protected int age;
-    protected String gender;
+    protected Gender gender;
 
     public Person(){
         this.name = "Jane Doe";
         this.age = 30;
-        this.gender = "female";
+        this.gender = gender.FEMALE;
     }
 
-    public Person(String name, int age, String gender){
+    public Person(String name, int age, Gender gender){
         this.name = name;
         this.age = age;
         this.gender = gender;
