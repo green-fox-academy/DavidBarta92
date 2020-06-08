@@ -2,57 +2,45 @@ package Pirate;
 
 public class Pirate {
     private boolean alive;
+    private State state;
     private boolean drunk;
-    private boolean captain;
     private boolean hasParrot;
 
     public Pirate(){
-        this.alive = true;
+        this.state = State.alive;
         this.drunk = false;
-        this.captain = false;
         this.hasParrot = false;
     }
 
-    public boolean getAliveStatus(){
-        return this.alive;
+    public State getState(){
+        return this.state;
     }
 
     public boolean getDrunkStatus(){
         return this.drunk;
     }
 
-    public boolean getCaptainStatus(){
-        return this.captain;
-    }
-
-    public boolean setCaptainStatus(){
-        return this.captain = true;
-    }
-
-    public boolean drinkSomeRum(){
-        if (alive){
-            return this.drunk = true;
+    public void drinkSomeRum(){
+        if (this.state == State.alive){
+            this.drunk = true;
         }
         else{
-            die();
-            return this.drunk = false;
+            this.drunk = false;
         }
     }
 
     public void howsItGoingMate(){
-        if (drunk && alive){
+        if (drunk && this.state == State.alive){
             System.out.println("Arghh, I'ma Pirate. How d'ya d'ink its goin?");
         }
-        else if(alive) {
+        else if(this.state == State.alive) {
             System.out.println("Pour me anudder!");
-        }
-        else {
-            die();
         }
     }
 
-    public boolean die(){
-        return alive = false;
+    public void die(){
+        this.drunk = false;
+        this.state = State.dead;
     }
 
     public void gotParrot(){
@@ -60,7 +48,7 @@ public class Pirate {
     }
 
     public void brawl(Pirate opponent) {
-        if (this.alive && opponent.alive) {
+        if (this.state == State.alive && opponent.state == State.alive) {
             byte chance = (byte) (Math.random()*3);
             if (chance == 0) {
                 this.die();

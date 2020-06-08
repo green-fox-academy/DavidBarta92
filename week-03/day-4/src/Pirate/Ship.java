@@ -21,7 +21,7 @@ public class Ship {
         for (byte i = 0; i < numOfCrew; i++){
             crew.add(i, new Pirate());
         }
-        this.captain = this.crew.get(0);
+        // this.captain = this.crew.get(0);
 
         System.out.println("This ship: " + numOfCrew + " sailor on the board! The score of the ship: " + this.score);
         if (this.crew.get(0).getDrunkStatus()){
@@ -41,14 +41,14 @@ public class Ship {
         while (i < this.crew.size() && i < otherShip.crew.size()){
             this.crew.get(i).brawl(otherShip.crew.get(i));
             byte anotherCup = (byte) (Math.random()*2);
-            if (this.crew.get(i).getAliveStatus()) {
+            if (this.crew.get(i).getState() == State.alive) {
                 this.score++;
                 if (anotherCup == 1){
                     otherShip.crew.get(0).drinkSomeRum();
                     otherShip.score++;
                 }
             }
-            else if (otherShip.crew.get(i).getAliveStatus()){
+            else if (otherShip.crew.get(i).getState() == State.alive){
                 if (anotherCup == 1){
                     this.crew.get(0).drinkSomeRum();
                     this.score++;
@@ -56,10 +56,10 @@ public class Ship {
             }
             i++;
         }
-        if (this.crew.get(0).getAliveStatus() && this.crew.get(0).getDrunkStatus()) {
+        if (this.crew.get(0).getState() == State.alive && this.crew.get(0).getDrunkStatus()) {
             this.score++;
         }
-        else if (otherShip.crew.get(0).getAliveStatus() && otherShip.crew.get(0).getDrunkStatus()){
+        else if (otherShip.crew.get(0).getState() == State.alive && otherShip.crew.get(0).getDrunkStatus()){
             otherShip.score++;
         }
 
