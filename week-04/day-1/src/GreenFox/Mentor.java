@@ -1,15 +1,10 @@
 package GreenFox;
 
-import GreenFox.Gender;
-import GreenFox.Level;
-
 public class Mentor extends Person {
     private Level level;
 
     public Mentor(){
-        this.name = "Jane Done";
-        this.age = 30;
-        this.gender = gender.FEMALE;
+        super();
         this.level = level.INTERMEDIATE;
     }
 

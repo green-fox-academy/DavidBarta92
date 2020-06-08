@@ -1,8 +1,5 @@
 package GreenFox;
 
-import GreenFox.Gender;
-import GreenFox.Level;
-
 public class Person {
     protected String name;
     protected int age;

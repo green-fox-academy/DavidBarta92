@@ -10,7 +10,7 @@ public class Student extends Person{
         this.skippedDays = 0;
     }
 
-    public Student(String name,int age,String gender,String previousOrganization){
+    public Student(String name,int age,Gender gender,String previousOrganization){
         this.name = name;
         this.age = age;
         this.gender = gender;
@@ -21,10 +21,11 @@ public class Student extends Person{
     public void getGoal(){
         System.out.println("Be a junior software developer.");
     }
-    public void introduce() {
-        System.out.println("Hi, I'm name, a age year old gender from previousOrganization who skipped skippedDays" +
-                " days from the course already.");
+
+    public void introduce(){
+        System.out.println("Hi, I'm "+ this.name + " , a " + this.age + " year old " + this.gender + " from " + previousOrganization + " who skipped " + skippedDays + " days from the course already.");
     }
+
     public void skipDays(int numberOfDays){
         this.skippedDays = skippedDays - numberOfDays;
     }
