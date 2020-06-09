@@ -3,18 +3,22 @@ package Zoo;
 public class Mammal extends Animal{
     private int pregnancyTime;
 
+    public Mammal(String name) {
+        this.name = name;
+    }
+
     public int getPregnancyTime(){
         return this.pregnancyTime;
     }
 
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
     @Override
     public String breed(){
-        return this.name + " gives birth to a little one.";
+        return " by pushing miniature versions out.";
     }
 
     @Override

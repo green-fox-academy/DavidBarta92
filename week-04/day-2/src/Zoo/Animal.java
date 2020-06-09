@@ -15,13 +15,26 @@ public abstract class Animal {
 
     Animal(String name){
         this.name = name;
+        this.age = 0;
+        this.gender = Gender.female;
+        this.color = "Red";
     }
 
-    public abstract String getName();
-    public abstract String breed();
-    public abstract String getColor();
-    public abstract int getAge();
-    public abstract Gender getGender();
+    public Animal(String name, String typeOfItsDiet) {
+        this.name = name;
+    }
+
+    public String getColor(){
+        return this.color;
+    }
+
+    public int getAge(){
+        return this.age;
+    }
+
+    public Gender getGender(){
+        return this.gender;
+    }
 
     public void setGender(Gender gender){
         this.gender = gender;
@@ -35,4 +48,9 @@ public abstract class Animal {
         this.age = age;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    abstract public String breed();
 }

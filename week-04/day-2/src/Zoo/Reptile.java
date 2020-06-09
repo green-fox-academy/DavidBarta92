@@ -1,7 +1,11 @@
 package Zoo;
 
-public class Reptile extends Animal {
+public class Reptile extends Animal implements ByEgg {
     private int bodyTemperature;
+
+    public Reptile(String name) {
+        this.name = name;
+    }
 
     public int getBodyTemperature(){
         return this.bodyTemperature;
@@ -9,6 +13,6 @@ public class Reptile extends Animal {
 
     @Override
     public String breed(){
-        return this.name + " laying eggs.";
+        return " laying eggs.";
     }
 }
