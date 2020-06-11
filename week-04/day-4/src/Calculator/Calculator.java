@@ -22,17 +22,16 @@ public class Calculator {
                     operation = operationAndOperand[i];
                 }
                 else if (i == 1){
-
+                    System.out.println();
                 }
-                else if(operationAndOperand[(i)+1] != 32 && !space){
-                    operand1.append(operationAndOperand[i]);
+                else if(space){
+                    operand2.append(operationAndOperand[i]);
                 }
-                else if(operationAndOperand[(i)+1] == 32 && !space){
-                    operand1.append(operationAndOperand[i]);
+                else if(operationAndOperand[i] == 32){
                     space = true;
                 }
                 else{
-                    operand2.append(operationAndOperand[i]);
+                    operand1.append(operationAndOperand[i]);
                 }
             }
             ArrayList<Integer> operand = new ArrayList<>();
