@@ -17,6 +17,11 @@ public class Student extends Person{
     }
 
     @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    @Override
     public String specificGoal(){
         return "Be a junior software developer.";
     }
