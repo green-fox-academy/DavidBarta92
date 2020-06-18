@@ -32,7 +32,6 @@ public class AircraftCarrier {
     }
   }
 
-
   public void fight(AircraftCarrier otherCarrier) {
     int damage = 0;
     for (Aircraft aircraft : aircrafts) {
