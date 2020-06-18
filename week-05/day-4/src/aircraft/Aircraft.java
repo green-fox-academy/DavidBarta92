@@ -12,8 +12,8 @@ public abstract class Aircraft {
     this.baseDamage = 0;
   }
 
-  public void getAmmo() {
-    System.out.println(this.ammoStorage);
+  public int getAmmo() {
+    return this.ammoStorage;
   }
 
   public int fight() {
@@ -22,16 +22,25 @@ public abstract class Aircraft {
     return damage;
   }
 
-  public void refill(int newAmmo) {
+  public int refill(int newAmmo) {
     int left = this.maxAmmo - this.ammoStorage;
     if (newAmmo < left) {
       this.ammoStorage = this.ammoStorage + newAmmo;
     } else {
       this.ammoStorage = this.ammoStorage + left;
     }
+    return left;
   }
 
   public String getType() {
     return this.type;
   }
+
+  public String getStatus() {
+    return "Type " + this.getType() + " Ammo: " + this.ammoStorage + " Base Damage: "
+        + this.baseDamage + " All Damage: " + this.ammoStorage * this.baseDamage;
+  }
+
+  abstract boolean isPriority();
+
 }

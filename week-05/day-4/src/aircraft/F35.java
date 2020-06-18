@@ -7,4 +7,9 @@ public class F35 extends Aircraft {
     this.baseDamage = 50;
     this.type = "F16";
   }
+
+  @Override
+  boolean isPriority() {
+    return true;
+  }
 }
