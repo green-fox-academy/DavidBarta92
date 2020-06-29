@@ -10,5 +10,6 @@ public class exercise2 {
     numbers.stream()
         .filter(n -> n > 0)
         .
+        .forEach(System.out::println);
   }
 }
