@@ -9,7 +9,6 @@ public class exercise2 {
   public static void main(String[] args) {
     numbers.stream()
         .filter(n -> n > 0)
-        .
-        .forEach(System.out::println);
+        .forEach(n -> System.out.println(n * n));
   }
 }
