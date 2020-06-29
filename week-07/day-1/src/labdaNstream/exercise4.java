@@ -8,7 +8,9 @@ public class exercise4 {
 
   public static void main(String[] args) {
     numbers.stream()
-        .filter(n -> n%2 !=0);
-        //.forEach(n -> (n + n+1));
+        .filter(n -> n % 2 != 0)
+        .mapToInt(n -> n)
+        .average()
+        .ifPresent(System.out::println);
   }
 }
