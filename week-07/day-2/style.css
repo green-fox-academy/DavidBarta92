@@ -48,6 +48,10 @@ td {
     color: #6a6e88;
 }
 
+tr:nth-child(even) {
+    background: rgb(226, 226, 226)
+}
+
 table , th, td {
 
     border-collapse: collapse;
