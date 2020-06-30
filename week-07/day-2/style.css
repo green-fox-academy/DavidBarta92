@@ -1,7 +1,5 @@
 body {
     background-color: #3e94ec;
-
-
 }
 
 table {
@@ -43,7 +41,6 @@ th {
 }
 
 td {
-
     border-top: 2px solid  #c1c3d0;
     color: #6a6e88;
 }
@@ -53,9 +50,7 @@ tr:nth-child(even) {
 }
 
 table , th, td {
-
     border-collapse: collapse;
-
 }
 
 th, td {
