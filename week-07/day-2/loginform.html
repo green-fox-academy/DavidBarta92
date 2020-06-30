@@ -1,15 +1,32 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./loginform-style.css">
+    <link rel="stylesheet" href="loginform-style.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
-</head>
-<body>
-<div>
 
-</div>
+    <title>Login Form</title>
+</head>
+
+<body>
+    <main>
+        <form action="/" method="post">
+            <h2>Account Login</h2>
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" required autofocus>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required pattern="[0-9a-zA-z]{8,12}"
+                title="Enter a password consisting of 8-12 digits or letters">
+            <div class="eye">
+                <i id="icon" class="fa fa-eye-slash"></i>
+            </div>
+            <a href="http://">Forgot Password?</a>
+            <input type="submit" value="Login" id="login">
+        </form>
+    </main>
 </body>
 </html>
