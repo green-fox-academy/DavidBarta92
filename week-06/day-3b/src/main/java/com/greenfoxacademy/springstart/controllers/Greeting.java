@@ -1,16 +1,14 @@
-package com.greenfoxacademy.springstart;
+package com.greenfoxacademy.springstart.controllers;
 
 public class Greeting {
-  long id = 1;
+  long greetCount = AtomicLong.getNum();
   String content = "Hello, World!";
 
   public Greeting(String name){
+    this.greetCount = 0;
     this.content = "Hello, " + name + "!";
   }
 
-  public long getId(){
-    return this.id;
-  }
 
   public String getContent(){
     return this.content;
