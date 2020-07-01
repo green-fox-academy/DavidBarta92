@@ -4,7 +4,8 @@ public class Greeting {
   long id = 1;
   String content = "Hello, World!";
 
-  public void Greeting(){
+  public Greeting(String name){
+    this.content = "Hello, " + name + "!";
   }
 
   public long getId(){
