@@ -4,6 +4,7 @@ import com.greenfoxacademy.bank_of_simba.Model.BankAccount;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -40,5 +41,10 @@ public class MainController {
     model.addAttribute("accounts", accounts);
     model.addAttribute("bankaccount", bankAccount);
     return "AccountsPage";
+  }
+
+  @PostMapping("/raise")
+  public void raise(){
+    accounts.stream().forEach(n -> n.setBalance(n.getBalance()+10));
   }
 }
