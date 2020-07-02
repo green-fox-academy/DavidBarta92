@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Accounts Page</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th th:text="#{}">Name</th>
+        <th th:text="#{}">Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="prod: ${}">
+        <td th:text="${}">Oranges</td>
+        <td th:text="${})}">0.99</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
