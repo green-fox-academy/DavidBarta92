@@ -1,4 +1,4 @@
-package Model;
+package com.greenfoxacademy.bank_of_simba.Model;
 
 public class BankAccount {
   private String name;
