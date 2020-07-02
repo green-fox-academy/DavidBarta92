@@ -3,19 +3,27 @@
 <head>
     <title>Accounts</title>
     <meta charset="utf-8"/>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
 </head>
 <body>
 <table>
-    <thed>
-        <tr>
-            <td>Owner</td>
-            <td>Balance</td>
-        </tr>
-    </thed>
+    <thead>
+    <td>Name</td>
+    <td>Balance</td>
+    <td>Animal type</td>
+    <td>Index of element</td>
+    <td>Good or Bad</td>
+    </thead>
     <tr th:each="account : ${accounts}">
-        <td th:text="${bankaccount.name}"></td>
-        <td th:text="'Balance: ' + ${#numbers.formatDecimal(bankaccount.balance,0, 2, 'DEFAULT')} + ' ' + ${bankaccount.animalType}"></td>
+        <td th:text="${account.getName()}"></td>
+        <td th:text="${account.getBalance()}"></td>
+        <td th:text="${account.getAnimalType()}" th:attr="class=${account.kingStyleClass}"></td>
+        <td th:text="${accountStat.index}"></td>
+        <td th:text="${account.getGood()} ? 'GOOD' : 'BAAD'"></td>
     </tr>
+
+
+
 </table>
 
 </body>

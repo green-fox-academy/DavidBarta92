@@ -13,12 +13,12 @@ import java.util.List;
 public class MainController {
 
   List<BankAccount> accounts = new ArrayList<>(Arrays.asList(
-      new BankAccount("Zordon", 80, "lion"),
-      new BankAccount("Zazu", 30, "tiger"),
-      new BankAccount("Papi", 500, "jaguar"),
-      new BankAccount("Lajos", 7000, "puma")
+      new BankAccount("Zordon", 80, "lion", "king", false),
+      new BankAccount("Zazu", 30, "tiger", "notKing", true),
+      new BankAccount("Papi", 500, "jaguar", "notKing", true),
+      new BankAccount("Lajos", 7000, "puma", "notKing", true)
   ));
-  BankAccount bankAccount = new BankAccount("Simba", 2000, "lion");
+  BankAccount bankAccount = new BankAccount("Simba", 2000, "lion", "king", true);
 
   @GetMapping("/show")
   public String show(Model model) {
@@ -37,9 +37,8 @@ public class MainController {
   @GetMapping("/allaccount")
   public String allAccount(Model model) {
 
-    model.addAttribute("account", accounts);
+    model.addAttribute("accounts", accounts);
     model.addAttribute("bankaccount", bankAccount);
-
     return "AccountsPage";
   }
 }
