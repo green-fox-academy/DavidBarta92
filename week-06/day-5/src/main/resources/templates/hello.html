@@ -10,6 +10,17 @@
     <div id="titlecont"><h1>My Shop</h1></div>
     <div><button href="">ONLY AVAILABLE</button><button href="">CHEAPEST FIRST</button><button href="">CONTAINS NIKE</button><button href="">AVERAGE STOCK</button><button href="">MOST EXPENSIVE AVAILABLE</button></div>
 </header>
-<p th:text="${name}"></p>
+<table>
+    <thead>
+    <td>Name</td>
+    <td>Description</td>
+    <td>Price</td>
+    </thead>
+    <tr th:each="item : ${Store}">
+        <td th:text="${item.getName()}"></td>
+        <td th:text="${item.getDescription()}"></td>
+        <td th:text="${item.getPrice()}"></td>
+    </tr>
+</table>
 </body>
 </html>

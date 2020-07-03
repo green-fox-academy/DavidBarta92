@@ -19,4 +19,7 @@ public class ShopItem {
     return this.price;
   }
 
+  public String getDescription(){
+    return this.description;
+  }
 }

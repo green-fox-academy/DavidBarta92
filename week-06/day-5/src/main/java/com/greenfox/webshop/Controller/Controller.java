@@ -3,7 +3,6 @@ package com.greenfox.webshop.Controller;
 import com.greenfox.webshop.Model.ShopItem;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,7 +30,7 @@ public class Controller {
 
   @GetMapping("/hello")
   public String hello(Model model){
-    model.addAttribute("name", "HelloWorld");
+    model.addAttribute("Store", Store);
     return "hello";
   }
 
