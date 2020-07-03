@@ -2,9 +2,14 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/style.css}"/>
     <title>Title</title>
 </head>
 <body>
+<header>
+    <div id="titlecont"><h1>My Shop</h1></div>
+    <div><button href="">ONLY AVAILABLE</button><button href="">CHEAPEST FIRST</button><button href="">CONTAINS NIKE</button><button href="">AVERAGE STOCK</button><button href="">MOST EXPENSIVE AVAILABLE</button></div>
+</header>
 <p th:text="${name}"></p>
 </body>
 </html>
