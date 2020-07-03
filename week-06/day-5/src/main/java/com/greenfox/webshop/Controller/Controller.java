@@ -38,12 +38,7 @@ public class Controller {
 
   @GetMapping("/only-available")
   public String availables(Model model) {
-    List<ShopItem> availables = new ArrayList<ShopItem>();
-    for (int i = 0; i < Store.size(); i++){
-      if (Store.get(i).getQuantity() > 0) {
-        availables.add(Store.get(i));
-      }
-    }
+    List<ShopItem> availables = Store.stream().filter(n -> n.getQuantity() > 0).collect(Collectors.toList());
     model.addAttribute("Store", availables);
     return "index";
   }
