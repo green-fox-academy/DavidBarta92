@@ -6,8 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @org.springframework.stereotype.Controller
 public class Controller {
@@ -47,5 +48,12 @@ public class Controller {
     return "index";
   }
 
-
+  @GetMapping("/cheapest-first")
+  public String cheapest(Model model) {
+    List<ShopItem> cheapest = Store.stream()
+        .sorted(Comparator.comparing(ShopItem::getPrice))
+        .collect(Collectors.toList());
+    model.addAttribute("Store", cheapest);
+    return "index";
+  }
 }
