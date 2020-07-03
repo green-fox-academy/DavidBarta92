@@ -15,11 +15,13 @@
     <td>Name</td>
     <td>Description</td>
     <td>Price</td>
+    <td>Quantity</td>
     </thead>
     <tr th:each="item : ${Store}">
         <td th:text="${item.getName()}"></td>
         <td th:text="${item.getDescription()}"></td>
         <td th:text="${item.getPrice()}"></td>
+        <td th:text="${item.getQuantity()}"></td>
     </tr>
 </table>
 </body>
