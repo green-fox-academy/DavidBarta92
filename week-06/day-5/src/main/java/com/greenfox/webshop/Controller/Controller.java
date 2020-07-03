@@ -51,4 +51,13 @@ public class Controller {
     model.addAttribute("Store", cheapest);
     return "index";
   }
+
+  @GetMapping("/contains-nike")
+  public String nike(Model model) {
+    List<ShopItem> cheapest = Store.stream()
+        .filter(n -> n.getName().toLowerCase().contains("nike") || n.getDescription().toLowerCase().contains("nike"))
+        .collect(Collectors.toList());
+    model.addAttribute("Store", cheapest);
+    return "index";
+  }
 }
