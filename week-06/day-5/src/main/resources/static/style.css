@@ -1,3 +1,7 @@
+body {
+    padding: 0;
+    margin: 0;
+}
 #titlecont{
     border-bottom: blueviolet 2px solid;
 }
@@ -14,4 +18,66 @@ button{
     background: brown;
     margin: 5px;
     color: aliceblue;
+}
+table {
+    margin-top: 150px;
+    border-collapse: collapse;
+}
+thead{
+    background: blueviolet;
+}
+th, td {
+    border: white solid thin;
+    padding: 15px;
+}
+
+th {
+    background-color: lightskyblue;
+}
+
+#stock {
+    text-align: center;
+}
+
+#avg {
+    margin-top: 150px;
+}
+
+form {
+    display: inline;
+    float: right;
+    padding-right: 20px;
+}
+
+input {
+
+    background-color: grey;
+    color: white;
+    border: white thin solid;
+    width: auto;
+    height: 2em;
+    border-radius: 3px;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 2pt 2pt crimson;
+}
+
+input::placeholder {
+    color: white;
+}
+
+button {
+    padding: 3px;
+    background-color: crimson;
+    color: white;
+    border-radius: 5px;
+    border: crimson 2px solid;
+    height: 2em;
+    transition: border-color ease-in-out .2s;
+}
+
+button:hover {
+    border-color: black;
 }
