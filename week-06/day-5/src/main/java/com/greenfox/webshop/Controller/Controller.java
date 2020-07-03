@@ -31,7 +31,7 @@ public class Controller {
   ));
 
   @GetMapping("/hello")
-  public String hello(Model model){
+  public String hello(Model model) {
     model.addAttribute("Store", Store);
     return "index";
   }
@@ -59,5 +59,12 @@ public class Controller {
         .collect(Collectors.toList());
     model.addAttribute("Store", cheapest);
     return "index";
+  }
+
+  @GetMapping("/average-stock")
+  public String average(Model model) {
+    int cheapest =5;
+    model.addAttribute("average", cheapest);
+    return "average";
   }
 }
