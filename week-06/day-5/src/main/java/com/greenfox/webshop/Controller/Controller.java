@@ -4,10 +4,7 @@ import com.greenfox.webshop.Model.ShopItem;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @org.springframework.stereotype.Controller
@@ -63,8 +60,10 @@ public class Controller {
 
   @GetMapping("/average-stock")
   public String average(Model model) {
-    int cheapest =5;
-    model.addAttribute("average", cheapest);
+    OptionalDouble avg = Store.stream().mapToDouble(ShopItem::getQuantity).average();
+    model.addAttribute("average", avg);
     return "average";
   }
+
+
 }
