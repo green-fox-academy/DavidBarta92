@@ -3,6 +3,8 @@ package com.greenfox.webshop.Controller;
 import com.greenfox.webshop.Model.ShopItem;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -51,10 +53,11 @@ public class Controller {
 
   @GetMapping("/contains-nike")
   public String nike(Model model) {
-    List<ShopItem> cheapest = Store.stream()
-        .filter(n -> n.getName().toLowerCase().contains("nike") || n.getDescription().toLowerCase().contains("nike"))
+    List<ShopItem> nike = Store.stream()
+        .filter(n -> n.getName()
+            .toLowerCase().contains("nike") || n.getDescription().toLowerCase().contains("nike"))
         .collect(Collectors.toList());
-    model.addAttribute("Store", cheapest);
+    model.addAttribute("Store", nike);
     return "index";
   }
 
@@ -65,5 +68,20 @@ public class Controller {
     return "average";
   }
 
+  @GetMapping("/most-expensive")
+  public String mostExpensive(Model model) {
+
+
+    return "index";
+  }
+
+  @PostMapping("/search")
+  public String search(@RequestParam(value = "searchbar") String search, Model model) {
+    List<ShopItem> result = Store.stream()
+        .filter(i -> i.getName().toLowerCase().contains(search.toLowerCase()) || i.getDescription().toLowerCase().contains(search.toLowerCase()))
+        .collect(Collectors.toList());
+    model.addAttribute("Store", result);
+    return "index";
+  }
 
 }
