@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 @org.springframework.stereotype.Controller
 public class Controller {
 
-  List<ShopItem> Store = new ArrayList<>(Arrays.asList(
+  static List<ShopItem> Store = new ArrayList<>(Arrays.asList(
       new ShopItem("Running shoes", 1000,
           "Nike running shoes for every day sport", 1),
       new ShopItem("Printer", 3000,
@@ -53,10 +53,7 @@ public class Controller {
 
   @GetMapping("/contains-nike")
   public String nike(Model model) {
-    List<ShopItem> nike = Store.stream()
-        .filter(n -> n.getName()
-            .toLowerCase().contains("nike") || n.getDescription().toLowerCase().contains("nike"))
-        .collect(Collectors.toList());
+    List<ShopItem> nike = Controller.contains("nike");
     model.addAttribute("Store", nike);
     return "index";
   }
@@ -77,11 +74,17 @@ public class Controller {
 
   @PostMapping("/search")
   public String search(@RequestParam(value = "searchbar") String search, Model model) {
-    List<ShopItem> result = Store.stream()
-        .filter(i -> i.getName().toLowerCase().contains(search.toLowerCase()) || i.getDescription().toLowerCase().contains(search.toLowerCase()))
-        .collect(Collectors.toList());
+    List<ShopItem> result = Controller.contains(search.toLowerCase());
     model.addAttribute("Store", result);
     return "index";
+  }
+
+  public static List<ShopItem> contains(String world){
+    List<ShopItem> foundedWorlds = Store.stream()
+        .filter(i -> i.getName().toLowerCase()
+            .contains(world) || i.getDescription().toLowerCase().contains(world))
+        .collect(Collectors.toList());
+    return foundedWorlds;
   }
 
 }
