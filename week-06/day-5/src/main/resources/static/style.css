@@ -26,18 +26,6 @@ table {
 thead{
     background: blueviolet;
 }
-th, td {
-    border: white solid thin;
-    padding: 15px;
-}
-
-th {
-    background-color: lightskyblue;
-}
-
-#stock {
-    text-align: center;
-}
 
 #avg {
     margin-top: 150px;
@@ -61,7 +49,6 @@ input {
 
 input:focus {
     outline: none;
-    box-shadow: 0 0 2pt 2pt crimson;
 }
 
 input::placeholder {
@@ -70,14 +57,119 @@ input::placeholder {
 
 button {
     padding: 3px;
-    background-color: crimson;
+    background-color: blueviolet;
     color: white;
     border-radius: 5px;
-    border: crimson 2px solid;
+    border: blueviolet 2px solid;
     height: 2em;
     transition: border-color ease-in-out .2s;
 }
 
 button:hover {
     border-color: black;
+}
+*{
+    background-color: whitesmoke;
+}
+a {
+    text-decoration: none;
+    width: 140px;
+}
+
+h1 {
+    color: blueviolet;
+    width: 250px;
+    margin-bottom: 0px;
+}
+
+.line {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid blueviolet;
+    margin-bottom: 25px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.buttons *:nth-child(n+1):nth-child(-n+4) {
+    margin-right: 5px;
+}
+
+.buttons * {
+    background-color: blueviolet;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    min-height: 30px;
+    height: auto;
+    color: white;
+    width: 20%;
+}
+
+.searchBar {
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    width: 100%;
+}
+
+.searchBar * {
+    height: 100%;
+    padding: 0;
+    color: blueviolet;
+}
+
+.searchBar input {
+    width: 80%;
+    margin-right: 5px;
+    border: 2px solid blueviolet;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: blueviolet;
+}
+
+.searchBar button {
+    width: 20%;
+    border: none;
+    border-radius: 5px;
+    background-color: blueviolet;
+    color: white;
+}
+
+label {
+    font-size: 15px;
+    color: blueviolet;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid darkgrey;
+    margin-top: 20px;
+    width: 100%;
+}
+
+th {
+    background-color: blueviolet;
+    height: 70px;
+    color: white;
+    border: 1px solid darkgrey;
+}
+
+td {
+    height: 70px;
+    padding: 20px;
+    color: blueviolet;
+    font-weight: bolder;
+    border: 1px solid darkgrey;
+}
+
+p {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 26px;
 }
