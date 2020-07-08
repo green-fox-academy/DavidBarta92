@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 @Component
 @Service
-public class Printer {
+public class Printer implements MyColor{
 
   @Autowired
   public Printer(){
@@ -17,6 +17,11 @@ public class Printer {
 
   public void log(String message) {
     System.out.println(LocalDateTime.now() + " MY PRINTER SAYS --- " + message);
+  }
+
+  @Override
+  public void printColor() {
+
   }
 
 }

@@ -9,12 +9,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SpellcheckerApplication implements CommandLineRunner {
 
   private Printer printer;
-  private MyColor yellow;
+  private MyColor color;
 
   @Autowired
   SpellcheckerApplication(Printer printer) {
     this.printer = printer;
-    this.yellow = new YellowColor();
+    this.color = new BlueColor();
   }
 
   public static void main(String[] args) {
@@ -24,6 +24,6 @@ public class SpellcheckerApplication implements CommandLineRunner {
   @Override
   public void run(String... args) throws Exception {
     printer.log("hello");
-    yellow.printColor();
+    color.printColor();
   }
 }
