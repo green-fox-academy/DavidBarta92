@@ -20,7 +20,6 @@ public class Printer implements MyColor{
 
   @Override
   public void printColor() {
-
   }
 
 }
