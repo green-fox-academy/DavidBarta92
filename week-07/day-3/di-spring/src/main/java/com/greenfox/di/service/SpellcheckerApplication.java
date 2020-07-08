@@ -8,11 +8,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SpellcheckerApplication implements CommandLineRunner {
 
-  private SpellChecker checker;
+  private Printer printer;
 
   @Autowired
-  SpellcheckerApplication(SpellChecker checker) {
-    this.checker = checker;
+  SpellcheckerApplication(Printer printer) {
+    this.printer = printer;
   }
 
   public static void main(String[] args) {
@@ -21,6 +21,6 @@ public class SpellcheckerApplication implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    checker.checkSpelling();
+    printer.log("hello");
   }
 }
