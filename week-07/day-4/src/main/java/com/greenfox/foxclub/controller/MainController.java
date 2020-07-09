@@ -8,18 +8,19 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MainController {
+  FoxList foxList = new FoxList();
 
   @RequestMapping("/")
-  public String index(@RequestParam(defaultValue = "Mr Fox") String name, Model model){
-    Fox newFox = new Fox(name);
-    model.addAttribute("name", newFox.getName());
-    model.addAttribute("food", newFox.getFood().toString());
-    model.addAttribute("drink", newFox.getDrink().toString());
-    if (newFox.getTricks().size() == 0) {
+  public String index(@RequestParam(defaultValue = "MrFox") String name, Model model){
+    Fox him = foxList.getTheFox(name);
+    model.addAttribute("name", him.getName());
+    model.addAttribute("food", him.getFood().toString());
+    model.addAttribute("drink", him.getDrink().toString());
+    if (him.getTricks().size() == 0) {
       model.addAttribute("numberoftricks", "This fox knows nothing.");
     }
     else {
-      model.addAttribute("numberoftricks", "This fox knows " + newFox.getTricks().size() +" tricks.");
+      model.addAttribute("numberoftricks", "This fox knows " + him.getTricks().size() +" tricks.");
     }
     return "index";
   }
@@ -31,6 +32,7 @@ public class MainController {
 
   @PostMapping("/name")
   public String postLogin(@RequestParam(value = "new-name") String name, Model model){
+    foxList.addNewFoxToTheClub(new Fox(name));
     return "redirect:/?name="+name;
   }
 }
