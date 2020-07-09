@@ -33,6 +33,6 @@ public class MainController {
     else {
       model.addAttribute("numberoftricks", "This fox knows " + FoxClub.getTheLastFox().getTricks().size() +" tricks.");
     }
-    return "index";
+    return "redirect:/index";
   }
 }
