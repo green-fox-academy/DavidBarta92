@@ -1,18 +1,17 @@
 package com.greenfox.foxclub.controller;
 
 import com.greenfox.foxclub.model.Fox;
-import com.greenfox.foxclub.model.FoxClub;
+import com.greenfox.foxclub.service.FoxList;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MainController {
-  @RequestMapping("/")
-  public String index(Model model){
-    model.addAttribute("name", "Mr. Fox");
+
+  @GetMapping("/")
+  public String index(@RequestParam(defaultValue = "Mr Fox") String name, Model model){
+    model.addAttribute("name", name);
     return "index";
   }
 
@@ -22,17 +21,18 @@ public class MainController {
   }
 
   @PostMapping("/name")
-  public String postLogin(@RequestParam(value = "new-name") String newName, Model model){
-    Fox newFox = new Fox(newName);
-    model.addAttribute("name", FoxClub.getTheLastFox().getName());
-    model.addAttribute("food", FoxClub.getTheLastFox().getFood().toString());
-    model.addAttribute("drink", FoxClub.getTheLastFox().getDrink().toString());
-    if (FoxClub.getTheLastFox().getTricks().size() == 0) {
-      model.addAttribute("numberoftricks", "This fox is like Jon Snow...");
+  public String postLogin(@RequestParam(value = "new-name") String name, Model model){
+    Fox newFox = new Fox(name);
+    model.addAttribute("name", newFox.getName());
+    model.addAttribute("food", newFox.getFood().toString());
+    model.addAttribute("drink", newFox.getDrink().toString());
+    if (newFox.getTricks().size() == 0) {
+      model.addAttribute("numberoftricks", "This fox knows nothing.");
     }
     else {
-      model.addAttribute("numberoftricks", "This fox knows " + FoxClub.getTheLastFox().getTricks().size() +" tricks.");
+      model.addAttribute("numberoftricks", "This fox knows " + newFox.getTricks().size() +" tricks.");
     }
-    return "redirect:/index";
+
+    return "redirect:/?name="+name;
   }
 }
