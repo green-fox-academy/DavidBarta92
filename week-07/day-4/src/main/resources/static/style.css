@@ -1,7 +1,54 @@
-div{
-    display: inline;
+@import url('https://fonts.googleapis.com/css2?family=Modak&family=Source+Sans+Pro&display=swap');
+
+.nav {
+    background-color: lightgreen;
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav li {
+    display: inline-block;
+    font-size: 20px;
+    padding: 20px;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: aliceblue;
 }
 
 body{
     background-color: white;
+}
+
+h1{
+    font-family: 'Modak', cursive;
+}
+
+p{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+a:link {
+    color: green;
+    text-decoration: none;
+    padding: 10px;
+}
+a:visited {
+    color: green;
+    background-color: green;
+}
+
+a:hover{
+    color: white;
+    background-color: limegreen;
+}
+
+a:active{
+    color: green;
+    background-color: limegreen;
+}
+
+#name{
+    color: green;
+    size: 20px;
 }
