@@ -9,19 +9,8 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class MainController {
 
-  @GetMapping("/")
+  @RequestMapping("/")
   public String index(@RequestParam(defaultValue = "Mr Fox") String name, Model model){
-    model.addAttribute("name", name);
-    return "index";
-  }
-
-  @RequestMapping("/login")
-  public String getLogin(){
-    return "login";
-  }
-
-  @PostMapping("/name")
-  public String postLogin(@RequestParam(value = "new-name") String name, Model model){
     Fox newFox = new Fox(name);
     model.addAttribute("name", newFox.getName());
     model.addAttribute("food", newFox.getFood().toString());
@@ -32,7 +21,16 @@ public class MainController {
     else {
       model.addAttribute("numberoftricks", "This fox knows " + newFox.getTricks().size() +" tricks.");
     }
+    return "index";
+  }
 
+  @RequestMapping("/login")
+  public String getLogin(){
+    return "login";
+  }
+
+  @PostMapping("/name")
+  public String postLogin(@RequestParam(value = "new-name") String name, Model model){
     return "redirect:/?name="+name;
   }
 }
