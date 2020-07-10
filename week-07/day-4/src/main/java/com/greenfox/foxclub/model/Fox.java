@@ -59,6 +59,8 @@ public class Fox {
     if (trickString.contains("use SQL")) {
       newOne = Trick.useSQL;
     }
-    this.tricks.add(newOne);
+    if (!this.tricks.contains(newOne)) {
+      this.tricks.add(newOne);
+    }
   }
 }
