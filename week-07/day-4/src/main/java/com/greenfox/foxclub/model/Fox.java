@@ -1,7 +1,5 @@
 package com.greenfox.foxclub.model;
 
-import com.greenfox.foxclub.service.FoxList;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,5 +40,25 @@ public class Fox {
 
   public void setDrink(String drinkString){
     this.drink = this.drink.valueOf(drinkString);
+  }
+
+  public void giveNewTrick(String trickString){
+    Trick newOne = Trick.doNothing;
+    if (trickString.contains("write HTML")) {
+      newOne = Trick.writeHTML;
+    }
+    if (trickString.contains("code in java")) {
+      newOne = Trick.codeInJava;
+    }
+    if (trickString.contains("code in c++")) {
+      newOne = Trick.codeInCplusplus;
+    }
+    if (trickString.contains("code in PHP")) {
+      newOne = Trick.codeInPHP;
+    }
+    if (trickString.contains("use SQL")) {
+      newOne = Trick.useSQL;
+    }
+    this.tricks.add(newOne);
   }
 }

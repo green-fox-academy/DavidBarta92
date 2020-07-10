@@ -9,7 +9,7 @@
 <div><ul class="nav"><li><h1 id="title">Fox Club</h1></li>
     <li><a href="/login" class="Button">Login</a></li>
     <li><a th:href="@{/nutritionStore(name=${name})}" class="Button">Nutrition Store</a></li>
-    <li><a href="/trickCenter" class="Button">Trick Center</a></li></ul></div>
+    <li><a th:href="@{/trickCenter(name=${name})}" class="Button">Trick Center</a></li></ul></div>
 <div id="formdiv">
     <h1>Set diet of this fox:</h1>
     <h3 id="name" th:text="${name}"></h3>

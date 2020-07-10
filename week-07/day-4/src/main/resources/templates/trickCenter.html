@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <title>Trick Center</title>
+</head>
+<body>
+<div><ul class="nav"><li><h1 id="title">Fox Club</h1></li>
+    <li><a href="/login" class="Button">Login</a></li>
+    <li><a th:href="@{/nutritionStore(name=${name})}" class="Button">Nutrition Store</a></li>
+    <li><a th:href="@{/trickCenter(name=${name})}" class="Button">Trick Center</a></li></ul></div>
+<div id="formdiv">
+    <h1>Teach something to him:</h1>
+    <h3 id="name" th:text="${name}"></h3>
+    <form method="post" action="/giveTrick">
+        <input type="hidden" name="name" th:value="${name}">
+        <label for="food">Trick</label>
+        <select id="food" name="new-trick">
+            <option value="write HTML">write HTML</option>
+            <option value="code in java">code in java</option>
+            <option value="code in c++">code in c++</option>
+            <option value="code in PHP">code in PHP</option>
+            <option value="use SQL">use SQL</option>
+        </select>
+        <input type="submit" value="Change">
+    </form>
+</div>
+</body>
+</html>

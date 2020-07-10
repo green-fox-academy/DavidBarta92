@@ -20,6 +20,7 @@ public class MainController {
     model.addAttribute("name", currentFox.getName());
     model.addAttribute("food", currentFox.getFood().toString());
     model.addAttribute("drink", currentFox.getDrink().toString());
+    model.addAttribute("tricks", currentFox.getTricks());
     if (currentFox.getTricks().size() == 0) {
       model.addAttribute("numberoftricks", "This fox knows nothing.");
     } else {
@@ -53,6 +54,20 @@ public class MainController {
                           @RequestParam (name = "new-drink")String drink, Model model) {
     foxList.getTheFox(name).setFood(food);
     foxList.getTheFox(name).setDrink(drink);
+    return "redirect:/?name=" + name;
+  }
+
+  @RequestMapping("/trickCenter")
+  public String trickCenter(@RequestParam String name, Model model) {
+    Fox currentFox = foxList.getTheFox(name);
+    model.addAttribute("name", currentFox.getName());
+    return "/trickCenter";
+  }
+
+  @PostMapping("/giveTrick")
+  public String giveTrick(@RequestParam String name,
+                          @RequestParam (name = "new-trick")String trick, Model model) {
+    foxList.getTheFox(name).giveNewTrick(trick);
     return "redirect:/?name=" + name;
   }
 }
