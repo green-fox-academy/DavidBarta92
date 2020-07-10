@@ -18,6 +18,8 @@
 
 body{
     background-color: white;
+    padding: 0px;
+    margin: 0px;
 }
 
 h1{
@@ -55,4 +57,17 @@ a:active{
 
 #title{
     color: green;
+}
+
+#formdiv{
+    margin-top: 40px;
+    background-color: lightgrey;
+    width: 100%;
+    height: 50px;
+    content-align: center;
+}
+
+select, input {
+    height: 30px;
+    border: green solid 1px;
 }

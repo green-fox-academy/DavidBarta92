@@ -35,4 +35,10 @@ public class MainController {
     foxList.addNewFoxToTheClub(new Fox(name));
     return "redirect:/?name="+name;
   }
+
+  @RequestMapping("/nutritionStore")
+  public String nutritionStore(){
+
+    return "nutritionStore";
+  }
 }
