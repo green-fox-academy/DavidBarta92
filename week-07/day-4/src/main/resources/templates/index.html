@@ -6,9 +6,12 @@
     <title>Fox Club</title>
 </head>
 <body>
-<div><ul class="nav"><h1 id="title">Fox Club</h1><li><a href="/login" class="Button">Information</a></li><li><a href="/nutritionStore" class="Button">Nutrition Store</a></li><li><a href="/trickCenter" class="Button">Trick Center</a></li></ul></div>
+<div><ul class="nav"><li><h1 id="title">Fox Club</h1></li>
+    <li><a href="/login" class="Button">Login</a></li>
+    <li><a th:href="@{/nutritionStore(name=${name})}" class="Button">Nutrition Store</a></li>
+    <li><a href="/trickCenter" class="Button">Trick Center</a></li></ul></div>
 <img src="./greenfox.png" alt="GreenFox" width="200" height="200">
-<div><p>This is </p><p id="name" th:text="${name}"></p><p>. Currently living on </p><p th:text="${food}"></p><p> and </p><p th:text="${drink}"></p><p>. </p><p th:text="${numberoftricks}"></p></div>
+<div><p th:text="'This is ' + ${name} + '. Currently living on ' + ${food} + ' and ' + ${drink} + '. He knows ' + ${numberoftricks} + ' tricks.'"></p></div>
 <h1>Known tricks</h1>
 <ul><li>write HTML</li><li>code in Java</li></ul>
 </body>

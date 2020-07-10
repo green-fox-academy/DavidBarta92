@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="UTF-8">
     <title>Store</title>
 </head>
 <body>
-<div><ul class="nav"><h1 id="title">Fox Club</h1><li><a href="/login" class="Button">Information</a></li><li><a href="/nutritionStore" class="Button">Nutrition Store</a></li><li><a href="/trickCenter" class="Button">Trick Center</a></li></ul></div>
+<div><ul class="nav"><li><h1 id="title">Fox Club</h1></li>
+    <li><a href="/login" class="Button">Login</a></li>
+    <li><a th:href="@{/nutritionStore(name=${name})}" class="Button">Nutrition Store</a></li>
+    <li><a href="/trickCenter" class="Button">Trick Center</a></li></ul></div>
 <div id="formdiv">
-<form method="post" action="/name">
+    <h1>Set diet of this fox:</h1>
+<form method="post" action="/nutrition">
+    <h3 id="name" th:text="${name}"></h3>
     <label for="food">Food</label>
     <select id="food" name="new-food">
         <option value="zucchini">zucchini</option>

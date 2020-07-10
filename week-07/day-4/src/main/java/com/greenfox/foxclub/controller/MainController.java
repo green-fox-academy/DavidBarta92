@@ -11,34 +11,39 @@ public class MainController {
   FoxList foxList = new FoxList();
 
   @RequestMapping("/")
-  public String index(@RequestParam(defaultValue = "MrFox") String name, Model model){
-    Fox him = foxList.getTheFox(name);
-    model.addAttribute("name", him.getName());
-    model.addAttribute("food", him.getFood().toString());
-    model.addAttribute("drink", him.getDrink().toString());
-    if (him.getTricks().size() == 0) {
-      model.addAttribute("numberoftricks", "This fox knows nothing.");
+  public String index(@RequestParam(defaultValue = "MrFox") String name, Model model) {
+    if (foxList.getTheList().contains(name)) { // nem mukodik
+      return "redirect:/login";
     }
-    else {
-      model.addAttribute("numberoftricks", "This fox knows " + him.getTricks().size() +" tricks.");
+    else{
+    Fox currentFox = foxList.getTheFox(name);
+    model.addAttribute("name", currentFox.getName());
+    model.addAttribute("food", currentFox.getFood().toString());
+    model.addAttribute("drink", currentFox.getDrink().toString());
+    if (currentFox.getTricks().size() == 0) {
+      model.addAttribute("numberoftricks", "This fox knows nothing.");
+    } else {
+      model.addAttribute("numberoftricks", "This fox knows " + currentFox.getTricks().size() + " tricks.");
     }
     return "index";
+    }
   }
 
   @RequestMapping("/login")
-  public String getLogin(){
+  public String getLogin() {
     return "login";
   }
 
   @PostMapping("/name")
-  public String postLogin(@RequestParam(value = "new-name") String name, Model model){
-    foxList.addNewFoxToTheClub(new Fox(name));
-    return "redirect:/?name="+name;
+  public String postLogin(@RequestParam(value = "new-name") String name, Model model) {
+      foxList.addNewFoxToTheClub(new Fox(name));
+      return "redirect:/?name=" + name;
   }
 
   @RequestMapping("/nutritionStore")
-  public String nutritionStore(){
-
-    return "nutritionStore";
+  public String nutrition(@RequestParam(defaultValue = "MrFox") String name, Model model) {
+    Fox currentFox = foxList.getTheFox(name);
+    model.addAttribute("name", currentFox.getName());
+    return "/nutritionStore";
   }
 }
