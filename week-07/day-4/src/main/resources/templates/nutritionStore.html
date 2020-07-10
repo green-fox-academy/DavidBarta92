@@ -12,8 +12,9 @@
     <li><a href="/trickCenter" class="Button">Trick Center</a></li></ul></div>
 <div id="formdiv">
     <h1>Set diet of this fox:</h1>
-<form method="post" action="/nutrition">
     <h3 id="name" th:text="${name}"></h3>
+<form method="post" action="/nutrition">
+    <input type="hidden" name="name" th:value="${name}">
     <label for="food">Food</label>
     <select id="food" name="new-food">
         <option value="zucchini">zucchini</option>

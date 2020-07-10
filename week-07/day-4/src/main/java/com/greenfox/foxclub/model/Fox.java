@@ -35,4 +35,12 @@ public class Fox {
   public List<Trick> getTricks() {
     return tricks;
   }
+
+  public void setFood(String foodString){
+    this.food = this.food.valueOf(foodString);
+  }
+
+  public void setDrink(String drinkString){
+    this.drink = this.drink.valueOf(drinkString);
+  }
 }

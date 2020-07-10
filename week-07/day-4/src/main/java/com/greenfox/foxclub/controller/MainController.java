@@ -41,9 +41,18 @@ public class MainController {
   }
 
   @RequestMapping("/nutritionStore")
-  public String nutrition(@RequestParam(defaultValue = "MrFox") String name, Model model) {
+  public String nutritionStore(@RequestParam String name, Model model) {
     Fox currentFox = foxList.getTheFox(name);
     model.addAttribute("name", currentFox.getName());
     return "/nutritionStore";
+  }
+
+  @PostMapping("/nutrition")
+  public String nutrition(@RequestParam String name,
+                          @RequestParam (name = "new-food")String food,
+                          @RequestParam (name = "new-drink")String drink, Model model) {
+    foxList.getTheFox(name).setFood(food);
+    foxList.getTheFox(name).setDrink(drink);
+    return "redirect:/?name=" + name;
   }
 }

@@ -13,6 +13,8 @@
 <img src="./greenfox.png" alt="GreenFox" width="200" height="200">
 <div><p th:text="'This is ' + ${name} + '. Currently living on ' + ${food} + ' and ' + ${drink} + '. He knows ' + ${numberoftricks} + ' tricks.'"></p></div>
 <h1>Known tricks</h1>
-<ul><li>write HTML</li><li>code in Java</li></ul>
+<ul th:each="trick : ${tricks}">
+    <li th:text="${trick.trickName}"></li>
+</ul>
 </body>
 </html>
