@@ -22,6 +22,10 @@ body{
     margin: 0px;
 }
 
+#content{
+    padding: 20px;
+}
+
 h1{
     font-family: 'Modak', cursive;
 }

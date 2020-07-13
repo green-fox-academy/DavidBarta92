@@ -36,7 +36,7 @@ public class MainController {
   }
 
   @PostMapping("/name")
-  public String postLogin(@RequestParam(value = "new-name") String name, Model model) {
+  public String postLogin(@RequestParam String name, Model model) {
       foxList.addNewFoxToTheClub(new Fox(name));
       return "redirect:/?name=" + name;
   }
