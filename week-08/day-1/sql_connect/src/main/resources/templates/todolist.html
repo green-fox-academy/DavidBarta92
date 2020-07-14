@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Todo webapp</title>
 </head>
 <body>
 <form method="post" action="/todo/add">
@@ -19,7 +19,8 @@
         <td th:text="${todo.done}"></td>
         <td th:text="${todo.title}"></td>
         <td th:text="${todo.urgent}"></td>
-        <td><a th:href="@{/todo/delete(${todo.id})}" class="deletebutton">Delete</a></td>
+        <td><a th:href="@{'/todo/delete/' + ${todo.id}}" class="deletebutton">Delete</a></td>
+        <td><a th:href="@{'/todo/update/' + ${todo.id}}" class="editbutton">Edit</a></td>
     </tr>
 </table>
 </body>

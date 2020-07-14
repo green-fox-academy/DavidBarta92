@@ -5,9 +5,8 @@ import com.greenfox.sql_connect.Repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import sun.security.pkcs11.Secmod;
 
 @Controller
 @RequestMapping("/todo")
@@ -32,8 +31,16 @@ public class TodoController {
     return "redirect:/todo/list";
   }
 
-  @PostMapping("/delete")
-  public String delete(@RequestParam Integer id){
+  @GetMapping("/delete/{id}")
+  public String delete(@PathVariable(name = "id") Long id){
+    todoRepository.deleteById(id);
     return "redirect:/todo/list";
+  }
+
+  @GetMapping("/update/{id}")
+  public String editpage(@PathVariable(name = "id") Long id, Model model){
+    todoRepository.findById(id);
+    model.addAttribute("todo", todoRepository.findById(id).orElse(null));
+    return "editpage";
   }
 }

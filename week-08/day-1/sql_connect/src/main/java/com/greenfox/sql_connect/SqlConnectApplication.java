@@ -17,12 +17,6 @@ public class SqlConnectApplication {
   @Bean
   public CommandLineRunner todoDB(TodoRepository todoRepository) {
     return args -> {
-      todoRepository.save(new Todo("Play games" , false, false));
-      todoRepository.save(new Todo("Learn code", true, false));
-      todoRepository.save(new Todo("Do something", false, true));
-      todoRepository.save(new Todo("Sleep", true, false));
-      todoRepository.save(new Todo("Call your mom", false, true));
-      todoRepository.save(new Todo("Prepare food", false, false));
     };
   }
 }
