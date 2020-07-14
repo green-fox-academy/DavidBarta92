@@ -18,8 +18,6 @@ public class TodoApplication {
     @Bean
     public CommandLineRunner todoDB(TodoRepository todoRepository) {
         return args -> {
-            todoRepository.save(new Todo("Go for a walk"));
-            todoRepository.save(new Todo("Feed the pet"));
        };
    }
 }
