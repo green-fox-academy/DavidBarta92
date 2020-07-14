@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import sun.security.pkcs11.Secmod;
 
 @Controller
 @RequestMapping("/todo")
@@ -42,5 +41,11 @@ public class TodoController {
     todoRepository.findById(id);
     model.addAttribute("todo", todoRepository.findById(id).orElse(null));
     return "editpage";
+  }
+
+  @PostMapping("/edit")
+  public String edit(@ModelAttribute(name = "todo") Todo todo){
+    todoRepository.save(todo); // not works
+    return "redirect:/todo/list";
   }
 }
