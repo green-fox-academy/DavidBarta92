@@ -17,7 +17,7 @@ public class RedditApplication {
   @Bean
   public CommandLineRunner todoDB(ArticleRepository articleRepository) {
     return args -> {
-      articleRepository.save(new Article());
+      articleRepository.save(new Article("MyApp", "https://bdtodo.herokuapp.com/todo/list"));
     };
   }
 }

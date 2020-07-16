@@ -50,10 +50,5 @@ public class MainController {
     articleRepository.save(new Article(title, content));
     return "redirect:/";
   }
-
-  @RequestMapping("/read/{id}")
-  public String read(@PathVariable(name = "id") Long id, Model model){
-    model.addAttribute("art", articleRepository.findById(id).orElse(null));
-    return "read";
-  }
+  
 }

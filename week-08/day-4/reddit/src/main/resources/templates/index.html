@@ -36,8 +36,7 @@
         <td th:text="${art.popularity}">
         <td><a type="button" value="Raise" class="btn btn-success" th:href="@{/raise/} + ${art.id}">+</a>
             <a type="button" value="Reduce" class="btn btn-danger" th:href="@{/reduce/} + ${art.id}"> - </a></td>
-        <td th:text="${art.title}"></td>
-        <td><a type="button" value="Read" th:href="@{/read/} + ${art.id}">Read</a></td>
+        <td><a type="button" value="Reduce" class="btn btn-light" th:href="${art.content}" th:text="${art.title}"></a></td>
     </tr>
     </thead>
 </table>
