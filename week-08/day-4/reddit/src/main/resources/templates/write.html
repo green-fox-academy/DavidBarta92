@@ -24,12 +24,12 @@
     </div>
 </nav>
 <div id="main_content">
-    <form th:action="@{'/add'}" th:method="post" th:object="${art}">
+    <form action="/add" method="post">
         <label for="title">Title</label>
-        <input id="title" type="text" th:field="${art.title}"><br>
+        <input id="title" type="text" name="title"><br>
         <label for="title">Content</label>
-        <input id="content" type="text" th:field="${art.content}"><br>
-        <button type="submit">ADD</button>
+        <input id="content" type="text" name="content"><br>
+        <button type="submit">Submit</button>
     </form>
 </div>
 </body>

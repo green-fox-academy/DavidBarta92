@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MainController {
@@ -43,9 +44,16 @@ public class MainController {
     return "write";
   }
 
-  @RequestMapping("/read/{art.id}")
+  @RequestMapping("/add")
+  public String add(@RequestParam(value = "title") String title,
+                      @RequestParam(value = "content") String content){
+    articleRepository.save(new Article(title, content));
+    return "redirect:/";
+  }
+
+  @RequestMapping("/read/{id}")
   public String read(@PathVariable(name = "id") Long id, Model model){
-    model.addAttribute("articles", articleRepository.findById(id));
+    model.addAttribute("art", articleRepository.findById(id).orElse(null));
     return "read";
   }
 }
