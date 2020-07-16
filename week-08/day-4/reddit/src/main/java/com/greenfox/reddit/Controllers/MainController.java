@@ -5,9 +5,7 @@ import com.greenfox.reddit.Repository.ArticleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MainController {
@@ -24,15 +22,17 @@ public class MainController {
     return "index";
   }
 
-  @RequestMapping("/raise/{art.id}")
-  public String raise(@ModelAttribute(name = "Raise") Article article){
+  @RequestMapping("/raise/{id}")
+  public String raise(@PathVariable(name = "id") Long id){
+    Article article = articleRepository.findById(id).orElse(null);
     article.raisePopularity();
     articleRepository.save(article);
     return "redirect:/";
   }
 
-  @RequestMapping("/reduce/{art.id}")
-  public String reduce(@ModelAttribute(name = "Reduce") Article article){
+  @RequestMapping("/reduce/{id}")
+  public String reduce(@PathVariable(name = "id") Long id){
+    Article article = articleRepository.findById(id).orElse(null);
     article.reducePopularity();
     articleRepository.save(article);
     return "redirect:/";
@@ -43,7 +43,7 @@ public class MainController {
     return "write";
   }
 
-  @RequestMapping("/add")
+  @PostMapping("/add")
   public String add(@RequestParam(value = "title") String title,
                       @RequestParam(value = "content") String content){
     articleRepository.save(new Article(title, content));
