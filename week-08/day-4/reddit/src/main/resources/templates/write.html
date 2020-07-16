@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+    <title>Reddit clone</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Reddit 2</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a th:href="@{/write}" class="nav-link">Add new</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div id="main_content">
+    <form th:action="@{'/add'}" th:method="post" th:object="${art}">
+        <label for="title">Title</label>
+        <input id="title" type="text" th:field="${art.title}"><br>
+        <label for="title">Content</label>
+        <input id="content" type="text" th:field="${art.content}"><br>
+        <button type="submit">ADD</button>
+    </form>
+</div>
+</body>
+</html>

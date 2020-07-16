@@ -2,17 +2,24 @@ package com.greenfox.foxclub.controller;
 
 import com.greenfox.foxclub.model.Fox;
 import com.greenfox.foxclub.service.FoxList;
+import com.greenfox.foxclub.service.FoxRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MainController {
-  FoxList foxList = new FoxList();
+  public FoxRepository foxRepository;
+
+  @Autowired
+  public MainController(FoxRepository foxRepository) {
+    this.foxRepository = foxRepository;
+  }
 
   @RequestMapping("/")
   public String index(@RequestParam(defaultValue = "MrFox") String name, Model model) {
-    if (foxList.getTheList().contains(name)) { // nem mukodik
+    if (foxList.getTheList().contains(name)) {
       return "redirect:/login";
     }
     else{
