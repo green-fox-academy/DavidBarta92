@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface ArticleRepository extends CrudRepository<Article, Long> {
-  @Query(value = "SELECT * FROM article ORDER BY popularity DESC", nativeQuery = true)
+  @Query(value = "SELECT * FROM article ORDER BY popularity DESC ", nativeQuery = true)
   List<Article> findAllOrderByPopularity(int from, int to);
 }

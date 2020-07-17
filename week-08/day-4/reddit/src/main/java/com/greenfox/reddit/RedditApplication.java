@@ -2,6 +2,7 @@ package com.greenfox.reddit;
 
 import com.greenfox.reddit.Models.Article;
 import com.greenfox.reddit.Repository.ArticleRepository;
+import com.greenfox.reddit.Services.ArticleService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,8 +16,13 @@ public class RedditApplication {
   }
 
   @Bean
-  public CommandLineRunner todoDB(ArticleRepository articleRepository) {
+  public CommandLineRunner reddit(ArticleService articleService) {
     return args -> {
     };
+  }
+
+  @Bean
+  ArticleService articleService(){
+    return new ArticleService();
   }
 }
