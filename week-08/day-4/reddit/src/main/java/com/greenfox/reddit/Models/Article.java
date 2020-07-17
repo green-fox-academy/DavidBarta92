@@ -2,11 +2,10 @@ package com.greenfox.reddit.Models;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Getter
@@ -18,6 +17,10 @@ public class Article {
   private Long popularity;
   private String title;
   private String content;
+  @DateTimeFormat(pattern="HH:mm" )
+  @Temporal(TemporalType.TIME)
+  @Column(nullable = false)
+  private Date postTime;
 
   public Article(String t, String c) {
     this.popularity= 0L;
