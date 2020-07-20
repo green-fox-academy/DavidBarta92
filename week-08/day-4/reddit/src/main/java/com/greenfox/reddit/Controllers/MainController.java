@@ -60,7 +60,7 @@ public class MainController {
   @PostMapping("/loggingin")
   public String loggingin(@RequestParam(value = "name") String userName,
                           @RequestParam(value = "password") String userPassword){
-    if(userService.inculdes(userName) && userService.findByName(userName).getPassword(userName).equals(userPassword)){
+    if(userService.includes(userName) && userService.findByName(userName).getPassword().equals(userPassword)){
       return "redirect:/";
     }
     else{

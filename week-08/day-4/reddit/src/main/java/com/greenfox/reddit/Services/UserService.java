@@ -8,6 +8,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -20,18 +24,34 @@ public class UserService {
   }
 
   public void addNew(String title, String content){
-    userRepository.save(new Article(title, content));
+    userRepository.save(new User());
   }
 
   public boolean includes(String name) {
-    userRepository.
-    return ;
+    Long i = 0L;
+    boolean found = false;
+    while(!found){
+      if(name.compareTo(userRepository.findById(i).get().getName()) == 0){
+        found = true;
+      }
+      else{
+        i++;
+      }
+    }
+    return found;
   }
 
   public User findByName(String name){
-    for(){
-      userRepository.findById();
+    Long i = 0L;
+    boolean found = false;
+    while(!found){
+      if(name.compareTo(userRepository.findById(i).get().getName()) == 0){
+        found = true;
+      }
+      else{
+        i++;
+      }
     }
-    return ;
+    return userRepository.findById(i).get();
   }
 }
