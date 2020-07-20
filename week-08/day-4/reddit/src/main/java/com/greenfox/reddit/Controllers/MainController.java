@@ -1,6 +1,7 @@
 package com.greenfox.reddit.Controllers;
 
 import com.greenfox.reddit.Services.ArticleService;
+import com.greenfox.reddit.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class MainController {
   private ArticleService articleService;
+  private UserService userService;
 
   @Autowired
   public MainController(ArticleService articleService) {
@@ -40,9 +42,39 @@ public class MainController {
 
   @PostMapping("/add")
   public String add(@RequestParam(value = "title") String title,
-                      @RequestParam(value = "content") String content){
+                    @RequestParam(value = "content") String content){
     articleService.addNew(title, content);
     return "redirect:/";
+  }
+
+  @RequestMapping("/login")
+  public String login(){
+    return "login";
+  }
+
+  @PostMapping("/loggingin")
+  public String loggingin(@RequestParam(value = "name") String title,
+                          @RequestParam(value = "password") String content){
+    //megkeresni az adatbazisban
+    return "redirect:/";
+  }
+
+  @RequestMapping("/register")
+  public String register(){
+    return "register";
+  }
+
+  @PostMapping("/registrate")
+  public String registrate(@RequestParam(value = "name") String title,
+                           @RequestParam(value = "password") String password,
+                           @RequestParam(value = "passwordAgain") String passwordAgain){
+    if(password == passwordAgain){
+      userService.addNew(title, password);
+      return "redirect:/";
+    }
+    else{
+      return "redirect:/register";
+    }
   }
 
 }

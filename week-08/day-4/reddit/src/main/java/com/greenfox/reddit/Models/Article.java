@@ -5,7 +5,7 @@ import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -17,10 +17,8 @@ public class Article {
   private Long popularity;
   private String title;
   private String content;
-  @DateTimeFormat(pattern="HH:mm" )
-  @Temporal(TemporalType.TIME)
-  @Column(nullable = false)
-  private Date postTime;
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  private LocalDateTime date;
 
   public Article(String t, String c) {
     this.popularity= 0L;

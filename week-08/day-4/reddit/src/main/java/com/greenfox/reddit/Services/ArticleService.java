@@ -12,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class ArticleService implements ArticalServiceInterface {
+public class ArticleService {
   @Autowired
   private ArticleRepository articleRepository;
 
@@ -20,21 +20,18 @@ public class ArticleService implements ArticalServiceInterface {
     this.articleRepository = articleRepository;
   }
 
-  @Override
   public void raise(Long id){
     Article article = articleRepository.findById(id).orElse(null);
     article.raisePopularity();
     articleRepository.save(article);
   }
 
-  @Override
   public void reduce(Long id){
     Article article = articleRepository.findById(id).orElse(null);
     article.reducePopularity();
     articleRepository.save(article);
   }
 
-  @Override
   public void addNew(String title, String content){
     articleRepository.save(new Article(title, content));
   }
