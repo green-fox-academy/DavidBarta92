@@ -18,9 +18,14 @@ public class MainController {
   }
 
   @RequestMapping("/")
-  public String list(Model model){
+  public String list(@PathVariable(name = "id", required = false) Long id, Model model){
     model.addAttribute("articles", articleService.findAllOrderByPopularity(1,10));
-    return "index";
+    if(id == null){
+      return "login";
+    }
+    else{
+      return "index";
+    }
   }
 
   @RequestMapping("/raise/{id}")
@@ -53,10 +58,14 @@ public class MainController {
   }
 
   @PostMapping("/loggingin")
-  public String loggingin(@RequestParam(value = "name") String title,
-                          @RequestParam(value = "password") String content){
-    //megkeresni az adatbazisban
-    return "redirect:/";
+  public String loggingin(@RequestParam(value = "name") String userName,
+                          @RequestParam(value = "password") String userPassword){
+    if(userService.inculdes(userName) && userService.findByName(userName).getPassword(userName).equals(userPassword)){
+      return "redirect:/";
+    }
+    else{
+      return "/";
+    }
   }
 
   @RequestMapping("/register")
