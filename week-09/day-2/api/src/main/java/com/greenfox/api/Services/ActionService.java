@@ -9,18 +9,21 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class ActionService {
+  private int result;
+
   public ActionService(String action, Until until){
+    int h = 1;
     if(action.contains("sum")){
-          int h = 1;
           for(int i = 1; i <= until.getUntil(); i++){
-            h = i * h;
+            h = i + h;
           }
+          h--;
     }
     else {
-      int h = 1;
       for(int i = 1; i <= until.getUntil(); i++){
-        h = i + h;
+        h = i * h;
       }
     }
+    this.result = h;
   }
 }
