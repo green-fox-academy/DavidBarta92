@@ -1,7 +1,9 @@
 package com.greenfox.api;
 
+import com.greenfox.api.Services.LogService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class ApiApplication {
@@ -10,4 +12,8 @@ public class ApiApplication {
     SpringApplication.run(ApiApplication.class, args);
   }
 
+  @Bean
+  LogService articleService(){
+    return new LogService();
+  }
 }
