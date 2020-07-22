@@ -3,6 +3,7 @@ package com.greenfox.api.Controllers;
 import com.greenfox.api.Models.DTO.ErrorMessage;
 import com.greenfox.api.Models.Entity.*;
 import com.greenfox.api.Services.ActionService;
+import com.greenfox.api.Services.OperationArrayProcess;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -59,6 +60,16 @@ public class MainRestController {
     }
     else{
       return ResponseEntity.status(200).body(new ActionService(action, until));
+    }
+  }
+
+  @PostMapping(value = "/arrays")
+  public ResponseEntity<?> appendA(@RequestBody OperationArray OpAr){
+    if (OpAr == null) {
+      return ResponseEntity.status(404).body(new ErrorMessage("There is no element to process."));
+    }
+    else{
+      return ResponseEntity.status(200).body(new OperationArrayProcess().operationService(OpAr));
     }
   }
 }
