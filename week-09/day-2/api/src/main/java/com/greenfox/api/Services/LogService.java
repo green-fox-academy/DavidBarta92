@@ -8,6 +8,8 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Getter
 @Setter
@@ -22,5 +24,10 @@ public class LogService {
 
   public void save(Log newLog){
     logRepository.save(newLog);
+  }
+
+  public List<Log> getAll(){
+    List<Log> allElementsOfLogRepo = (List<Log>) logRepository.findAll();
+    return allElementsOfLogRepo;
   }
 }

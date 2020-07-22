@@ -82,4 +82,14 @@ public class MainRestController {
       return ResponseEntity.status(200).body(new OperationArrayProcess().operationService(OpAr));
     }
   }
+
+  @GetMapping(value = "/log")
+  public ResponseEntity<?> log(){
+    try {
+      return ResponseEntity.status(200).body(new LogReport(logService.getAll(), logService.getAll().size()));
+    }
+    catch(Exception e400){
+      return ResponseEntity.status(200).body(new ErrorMessage("Please provide an input!"));
+    }
+  }
 }
