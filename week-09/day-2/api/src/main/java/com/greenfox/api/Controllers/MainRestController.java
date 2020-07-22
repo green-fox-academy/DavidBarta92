@@ -89,7 +89,18 @@ public class MainRestController {
       return ResponseEntity.status(200).body(new LogReport(logService.getAll(), logService.getAll().size()));
     }
     catch(Exception e400){
-      return ResponseEntity.status(200).body(new ErrorMessage("Please provide an input!"));
+      return ResponseEntity.status(500).body(new ErrorMessage("Please provide an input!"));
+    }
+  }
+
+  @PostMapping(value = "/sith")
+  public ResponseEntity<?> appendA(@RequestBody Sith sith){
+    logService.save(new Log(new Date(), "/sith", sith.getText()));
+    if (sith == null) {
+      return ResponseEntity.status(404).body(new ErrorMessage("Feed me some text you have to, padawan young you are. Hmmm."));
+    }
+    else{
+      return ResponseEntity.status(200).body(new Sith(sith));
     }
   }
 }
