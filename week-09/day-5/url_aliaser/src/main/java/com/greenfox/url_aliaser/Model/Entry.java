@@ -36,4 +36,8 @@ public class Entry {
     double code = Math.random() * ((9999 - 1000) + 1)+1000;
     this.secretCode = (int)Math.round(code);
   }
+
+  public String getAlias(){
+    return this.alias;
+  }
 }

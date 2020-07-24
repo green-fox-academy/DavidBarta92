@@ -1,9 +1,9 @@
 package com.greenfox.url_aliaser.Controllers;
 
 import com.greenfox.url_aliaser.Model.Entry;
-import com.greenfox.url_aliaser.Repository.EntryRepository;
 import com.greenfox.url_aliaser.Service.EntryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -43,7 +43,10 @@ public class MainController {
 
   @GetMapping("/a/{alias}")
   public String a(@PathVariable(name = "alias") String alias) {
-
-    return "redirect:/";
+    try{
+      return "redirect:"+entryService.getTheURL(alias);
+    } catch (Exception e) {
+      return "redirect:/a/error";
+    }
   }
 }

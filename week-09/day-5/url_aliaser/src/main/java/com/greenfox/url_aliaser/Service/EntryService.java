@@ -8,6 +8,8 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Getter
 @Setter
@@ -21,20 +23,46 @@ public class EntryService {
   }
 
   public boolean alreadyExists(String alias) {
-    Long i = 0L;
+    int i = 1;
     boolean found = false;
+    List<Entry> entries = (List<Entry>) entryRepository.findAll();
     while(!found){
-      if(alias.compareTo(entryRepository.findById(i).get().getAlias()) == 0){
+      if(alias.compareTo(entries.get(i).getAlias()) == 0){
+        found = true;
+        return true;
+      }
+      if(i+1 == entries.size()){
+        found = true;
+        return false;
+      }
+      else{
+        i++;
+      }
+    }
+    return false;
+  }
+
+  public void save(Entry newEntry){
+    entryRepository.save(newEntry);
+  }
+
+  public String getTheURL(String alias){
+    int i = 1;
+    boolean found = false;
+    List<Entry> entries = (List<Entry>) entryRepository.findAll();
+    while(!found){
+      if(alias.compareTo(entries.get(i).getAlias()) == 0 || i+1 == entries.size()){
         found = true;
       }
       else{
         i++;
       }
     }
-    return found;
+    return entries.get(i).getUrl();
   }
 
-  public void save(Entry newEntry){
-    entryRepository.save(newEntry);
+  public List<Entry> getAll(){
+    List<Entry> allElementsOfEntryRepo = (List<Entry>) entryRepository.findAll();
+    return allElementsOfEntryRepo;
   }
 }
