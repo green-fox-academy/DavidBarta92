@@ -20,23 +20,23 @@ public class ArticleService {
     this.articleRepository = articleRepository;
   }
 
-  public void raise(Long id){
+  public void raise(Long id) {
     Article article = articleRepository.findById(id).orElse(null);
     article.raisePopularity();
     articleRepository.save(article);
   }
 
-  public void reduce(Long id){
+  public void reduce(Long id) {
     Article article = articleRepository.findById(id).orElse(null);
     article.reducePopularity();
     articleRepository.save(article);
   }
 
-  public void addNew(String title, String content){
+  public void addNew(String title, String content) {
     articleRepository.save(new Article(title, content));
   }
 
-  public List<Article> findAllOrderByPopularity(int min, int max){
+  public List<Article> findAllOrderByPopularity(int min, int max) {
     List<Article> articles = articleRepository.findAllOrderByPopularity(min, max);
     return articles;
   }
