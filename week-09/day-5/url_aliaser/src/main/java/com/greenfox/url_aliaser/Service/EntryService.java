@@ -70,4 +70,8 @@ public class EntryService {
   public Optional<Entry> findById(Long id){
     return entryRepository.findById(id);
   }
+
+  public void deleteById(Long id) {
+    entryRepository.deleteById(id);
+  }
 }

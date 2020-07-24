@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
-
 @RestController
 public class MainRestController {
 
@@ -30,8 +28,17 @@ public class MainRestController {
   }
 
   @DeleteMapping("/api/links/{id}")
-  public String delete(@PathVariable(name = "id") Long id) {
-    entryService.findById(id).get().getSecretCode();
-    return null;
+  public ResponseEntity<?> delete(@PathVariable(name = "id") Long id,
+                                  @RequestBody int code) {
+    if(entryService.findById(id).get() == null){
+      return ResponseEntity.status(404).body("");
+    }
+    else if (entryService.findById(id).get().getSecretCode() != code){
+      return ResponseEntity.status(403).body("");
+    }
+    else{
+      entryService.deleteById(id);
+      return ResponseEntity.status(204).body("");
+    }
   }
 }
