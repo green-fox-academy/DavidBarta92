@@ -13,7 +13,7 @@ public class UrlAliaserApplication {
   }
 
   @Bean
-  EntryService articleService(){
+  EntryService entryleService(){
     return new EntryService();
   }
 

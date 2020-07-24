@@ -1,5 +1,7 @@
 package com.greenfox.url_aliaser.Controllers;
 
+import com.greenfox.url_aliaser.Service.EntryService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -7,6 +9,9 @@ import java.util.Date;
 
 @RestController
 public class MainRestController {
+
+  @Autowired
+  private EntryService entryService;
 
   @GetMapping(value = "/api/links")
   public ResponseEntity<?> links() {
@@ -20,7 +25,7 @@ public class MainRestController {
 
   @DeleteMapping("/api/links/{id}")
   public String delete(@PathVariable(name = "id") Long id) {
-    
+
     return null;
   }
 }

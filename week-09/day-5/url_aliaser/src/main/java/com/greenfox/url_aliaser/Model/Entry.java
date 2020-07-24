@@ -25,5 +25,15 @@ public class Entry {
   private int secretCode;
   private int hitCount;
 
+  public Entry(String url, String alias){
+    this.url = url;
+    this.alias = alias;
+    this.setSecretCode();
+    this.hitCount = 0;
+  }
 
+  public void setSecretCode() {
+    double code = Math.random() * ((9999 - 1000) + 1)+1000;
+    this.secretCode = (int)Math.round(code);
+  }
 }
