@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Getter
@@ -64,5 +65,9 @@ public class EntryService {
   public List<Entry> getAll(){
     List<Entry> allElementsOfEntryRepo = (List<Entry>) entryRepository.findAll();
     return allElementsOfEntryRepo;
+  }
+
+  public Optional<Entry> findById(Long id){
+    return entryRepository.findById(id);
   }
 }

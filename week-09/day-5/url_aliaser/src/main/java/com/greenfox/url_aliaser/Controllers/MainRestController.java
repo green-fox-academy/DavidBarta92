@@ -31,7 +31,7 @@ public class MainRestController {
 
   @DeleteMapping("/api/links/{id}")
   public String delete(@PathVariable(name = "id") Long id) {
-    
+    entryService.findById(id).get().getSecretCode();
     return null;
   }
 }
