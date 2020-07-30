@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+    <title>Team</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Fox_manager</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a th:href="@{/class(name=${name})}" class="nav-link">Teams <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a th:href="@{/class(name=${name})}" class="nav-link">Classes</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!--                         Idaig tart a menu                                -->
+
+<div id="main_content">
+    <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>Popularity</th>
+            <th></th>
+            <th>Title</th>
+            <th></th>
+        </tr>
+        <tr th:each="art : ${articles}">
+            <td th:text="${art.popularity}">
+            <td><a type="button" value=${art} class="btn btn-success" th:href="@{/raise/} + ${art.id}">+</a>
+                <a type="button" value=${art} class="btn btn-danger" th:href="@{/reduce/} + ${art.id}"> - </a></td>
+            <td><a type="button" value="Reduce" class="btn btn-light" th:href="${art.content}" th:text="${art.title}"></a></td>
+        </tr>
+        </thead>
+    </table>
+</div>
+</body>
+</html>

@@ -1,16 +1,11 @@
 package com.greenfox.reddit.Services;
 
-import com.greenfox.reddit.Models.Article;
 import com.greenfox.reddit.Models.User;
 import com.greenfox.reddit.Repository.UserRepository;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 @Getter
 @Setter

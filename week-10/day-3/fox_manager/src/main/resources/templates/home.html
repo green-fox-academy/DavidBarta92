@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+    <title>Home</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Fox_manager</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a th:href="@{/class(name=${name})}" class="nav-link">Teams</a>
+            </li>
+            <li class="nav-item">
+                <a th:href="@{/class(name=${name})}" class="nav-link">Classes</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!--                         Idaig tart a menu                                -->
+
+<div id="main_content">
+    <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>Priority</th>
+            <th>Task</th>
+            <th>Due Date</th>
+            <th></th>
+        </tr>
+        <tr th:each="task : ${tasks}">
+            <td th:text="${task.getPriorityLevel()}">
+            <td th:text="${task.getTask()}">
+            <td th:text="${task.getDueDate()}">
+            <td><a type="button" value=${task} class="btn btn-success" th:href="@{/edit/} + ${task.getId()}">Edit</a>
+                <a type="button" value=${task} class="btn btn-danger" th:href="@{/remove/} + ${task.getId()}">Remove</a></td>
+        </tr>
+        </thead>
+    </table>
+</div>
+</body>
+</html>

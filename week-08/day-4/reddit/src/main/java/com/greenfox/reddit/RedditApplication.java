@@ -1,7 +1,5 @@
 package com.greenfox.reddit;
 
-import com.greenfox.reddit.Models.Article;
-import com.greenfox.reddit.Repository.ArticleRepository;
 import com.greenfox.reddit.Services.ArticleService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
